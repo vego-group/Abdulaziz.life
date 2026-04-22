@@ -16,10 +16,7 @@ export default function HeroSection() {
       
       <div className="hero-inner">
         <div className="hero-text">
-          <div className="hero-badge">
-            <div className="hero-badge-dot" />
-            <span>{language === 'ar' ? 'سفير رؤية 2030' : 'VISION 2030 AMBASSADOR'}</span>
-          </div>
+          
           
           <h1 className="hero-h1">
             {language === 'ar' ? (
