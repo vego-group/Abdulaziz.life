@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     'استشارات استراتيجية',
     'التنقل الكهربائي',
     'فيجو',
+    'فيغو',
   ],
 };
 
@@ -23,20 +24,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ar" dir="rtl" className={fontVariables} suppressHydrationWarning>
-      <head>
-        {/* Font Awesome (اختياري لو بتستخدمه) */}
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-        />
-
-        {/* ✅ Material Symbols (حل مشكلة الأيقونات) */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
-          rel="stylesheet"
-        />
-      </head>
-
       {/* Browser extensions (e.g. ColorZilla) add attributes to <body> before hydration. */}
       <body suppressHydrationWarning>
         <LanguageProvider>{children}</LanguageProvider>

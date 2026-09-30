@@ -1,8 +1,4 @@
-/* Layer order: pre-redesign styles sit above Tailwind's reset (so old sections keep their spacing)
- * but below utilities (so they never beat new components). Tailwind appends components, utilities. */
-@layer theme, base, legacy;
 @import 'tailwindcss';
-@import './legacy.css' layer(legacy);
 
 /*
  * Design tokens — Figma "عبدالعزيز بورتفوليو" (file hZc5m1EXn9gdHcVMPm84wF), designed at 1369px.

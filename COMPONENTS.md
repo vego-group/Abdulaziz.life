@@ -1,26 +1,78 @@
 # توثيق المكونات (Components Documentation)
 
-هذا الملف يشرح كل مكون في المشروع وكيفية استخدامه.
+هذا الملف يشرح نظام التصميم وكل مكون في المشروع وكيفية استخدامه.
+التصميم مأخوذ من ملف Figma «عبدالعزيز بورتفوليو» (عرض التصميم 1369px)، والموقع داكن فقط حالياً وثنائي اللغة (عربي RTL / إنجليزي LTR).
 
 ---
 
-## 🎨 UI Components
+## 🎨 نظام التصميم (Design Tokens)
 
-### MaterialIcon
-**المسار:** `src/components/ui/MaterialIcon.tsx`
+**المسار:** `src/styles/globals.css` (داخل `@theme` في Tailwind v4)، والخطوط في `src/app/fonts.ts`.
 
-**الوصف:** مكون لعرض أيقونات Google Material Symbols
+كل القيم معرّفة كمتغيرات CSS، لذلك يمكن إضافة ثيم فاتح لاحقاً بإعادة تعريف الألوان فقط دون تعديل المكونات.
 
-**الاستخدام:**
+| النوع | الأمثلة | الاستخدام |
+|---|---|---|
+| الألوان | `ink` `card` `surface` `media` `line` `line-strong` `fg` `muted` `accent` `accent-soft` `accent-bright` `scrim` `glass` `nav` `danger` | `bg-ink` ، `text-muted` ، `border-line` ، `from-scrim/65` |
+| أحجام الخط الثابتة | `text-9` … `text-22` | نصوص الواجهة الصغيرة (ارتفاع السطر الافتراضي 1.6) |
+| أحجام الخط المتجاوبة | `text-24` … `text-200` | العناوين؛ تساوي قيمة Figma عند 1369px وتصغر على الشاشات الأصغر |
+| المسافات | `px-gutter` (40) ، `gutter-md` (48) ، `gutter-lg` (80) ، `py-section` (100) ، `section-lg` (120) ، `section-xl` (140) ، `h-nav` (64) | متجاوبة بنفس الطريقة |
+| الحاوية | `max-w-page` (1440px) | |
+| الزوايا | `rounded-control` (8) ، `rounded-badge` (2) ، `rounded-submit` (1) | |
+| أخرى | `tracking-label` (0.5px) ، `text-stroke` (نص محدّد بخط فقط) | |
+
+**الخطوط:** `font-sans` (IBM Plex Sans Arabic، الافتراضي) ، `font-display` (Instrument Sans) ، `font-mono` (DM Mono) ، `font-geist` (Geist). الخطوط اللاتينية تعود تلقائياً إلى IBM Plex Sans Arabic للحروف العربية.
+
+**الاتجاه (RTL):** استخدم الخصائص المنطقية دائماً (`ps-*` / `pe-*` ، `ms-*` / `me-*` ، `start-*` / `end-*` ، `border-s` / `border-e`) حتى ينعكس التصميم تلقائياً في الإنجليزية.
+
+---
+
+## 🧩 UI Components
+
+### SectionIntro
+**المسار:** `src/components/ui/SectionIntro.tsx`
+
+**الوصف:** افتتاحية القسم: عنوان كبير (80px) في جهة البداية وملاحظة قصيرة في الطرف الآخر أسفل العنوان. مستخدم في Expertise و Work.
+
 ```tsx
-<MaterialIcon icon="home" className="text-gold" />
-<MaterialIcon icon="mail" filled={true} />
+<SectionIntro heading={t(WORK.heading)} note={t(WORK.note)} />
 ```
 
 **Props:**
-- `icon: string` - اسم الأيقونة
-- `className?: string` - فئات CSS إضافية
-- `filled?: boolean` - إذا كانت الأيقونة مملوءة
+- `heading: string` - العنوان
+- `note?: string` - الملاحظة الجانبية
+- `headingWidthClass?: string` - عرض العنوان (الافتراضي `max-w-[946px]`)
+
+---
+
+### Tag
+**المسار:** `src/components/ui/Tag.tsx`
+
+**الوصف:** وسم بإطار رفيع.
+
+```tsx
+<Tag>استشارات</Tag>
+<Tag tone="overlay">تنقل</Tag>
+```
+
+**Props:**
+- `children: ReactNode`
+- `tone?: 'panel' | 'overlay' | 'hero'` - على اللوحات الداكنة / فوق الصور / في رأس دراسة الحالة
+- `className?: string`
+
+---
+
+### OutlineNumerals
+**المسار:** `src/components/ui/OutlineNumerals.tsx`
+
+**الوصف:** الرقمان «20 / 30» بخط محدّد (زخرفي، `aria-hidden`). مستخدم في About و Vision، ويُخفى تحت 1024px.
+
+```tsx
+<OutlineNumerals className="absolute end-18 top-[108px] max-lg:hidden" />
+```
+
+**Props:**
+- `className?: string` - للتموضع
 
 ---
 
@@ -29,14 +81,11 @@
 ### Header
 **المسار:** `src/components/layout/Header.tsx`
 
-**الوصف:** رأس الصفحة مع القائمة والأزرار
-
 **المميزات:**
-- قائمة التنقل الرئيسية
-- زر تبديل اللغة
-- زر تبديل الثيم
-- زر حجز استشارة
-- قائمة موبايل متجاوبة
+- شريط ثابت بارتفاع 64px، شفاف أعلى الصفحة ويصبح داكناً مع التمرير
+- روابط التنقل من `NAVIGATION_ITEMS`
+- زر تبديل اللغة وزر «احجز استشارة»
+- قائمة موبايل تحت 1024px
 
 **لا يحتاج props**
 
@@ -45,107 +94,41 @@
 ### Footer
 **المسار:** `src/components/layout/Footer.tsx`
 
-**الوصف:** تذييل الصفحة
-
-**المميزات:**
-- الشعار
-- حقوق النشر
-- روابط التنقل
-- أزرار التواصل
+**المميزات:** الاسم والتعريف، روابط التنقل (`FOOTER.nav`)، روابط التواصل (لينكدإن، البريد، واتساب)، وشريط سفلي بحقوق النشر.
 
 **لا يحتاج props**
 
 ---
 
-## 📄 Section Components
+## 📄 Section Components (بترتيب الصفحة الرئيسية)
 
-### HeroSection
-**المسار:** `src/components/sections/HeroSection.tsx`
+| المكون | المسار | المحتوى | البيانات |
+|---|---|---|---|
+| HeroSection | `sections/HeroSection.tsx` | العنوان، الوصف، الأزرار، الصورة الشخصية وشارة «مقيم في» | `HERO` |
+| ImpactSection | `sections/ImpactSection.tsx` | أربعة أرقام بفواصل | `IMPACT_STATS` |
+| AboutSection (`#about`) | `sections/AboutSection.tsx` | العنوان والمقدمة، ثم `about/AboutBio` و `about/AboutProfileEducation` و `about/AboutSectors` | `ABOUT` ، `BIO_INFO` ، `TIMELINE` ، `SECTORS` |
+| ExpertiseSection (`#expertise`) | `sections/ExpertiseSection.tsx` | أربعة مجالات خبرة وشريط «ناقش متطلباتك» | `EXPERTISE` ، `EXPERTISE_AREAS` |
+| WorkSection (`#work`) | `sections/WorkSection.tsx` | مشروع VEGO المميز وخمسة صفوف مشاريع بالتناوب | `WORK` ، `WORK_PROJECTS` |
+| VisionSection (`#vision`) | `sections/VisionSection.tsx` | العنوان مع الشبكة والأرقام، وأربعة محاور | `VISION` |
+| VisionStripe | `sections/VisionStripe.tsx` | شريط الاقتباس | `VISION.stripeQuote` |
+| InsightsSection (`#insights`) | `sections/InsightsSection.tsx` | قائمة المقالات (غير قابلة للنقر حالياً) | `INSIGHTS` |
+| ContactSection (`#contact`) | `sections/ContactSection.tsx` | معلومات التواصل ونموذج الاستشارة | `CONTACT` ، `BIO_INFO` ، `CONSULTATION_TYPES` |
 
-**الوصف:** القسم البطل في أعلى الصفحة
-
-**المحتوى:**
-- Badge (شارة رؤية 2030)
-- العنوان الرئيسي
-- الوصف
-- أزرار Call-to-Action
-- الصورة الشخصية
-- شريط المهارات
-
----
-
-### AboutSection
-**المسار:** `src/components/sections/AboutSection.tsx`
-
-**الوصف:** قسم "نبذة عني"
-
-**المحتوى:**
-- نص تعريفي
-- المعلومات الشخصية (Bio Grid)
-- Timeline التعليم
-- شارات اللغات
-- بطاقات الإحصائيات
+**ملاحظات:**
+- في WorkSection يظهر رابط «عرض المشروع» فقط للمشاريع التي لها `caseStudy`.
+- نموذج التواصل يرسل إلى `submitConsultationRequest` في `src/lib/api.ts` مع الحقول `fullname` ، `email` ، `consultation_type` ، `request_details`. حقل «الشركة» يُضاف في بداية `request_details` لأن الـ API لا يحتوي على حقل للشركة. الرسالة مطلوبة لأن الـ API يرفض الطلب بدونها.
+- الـ API يرفض الطلبات القادمة من `localhost` (CSRF 419)، لذلك اختبر النموذج محلياً بردود وهمية (mock).
 
 ---
 
-### ServicesSection
-**المسار:** `src/components/sections/ServicesSection.tsx`
+## 📑 دراسة الحالة (Case Study)
 
-**الوصف:** قسم الخدمات الاستشارية
+### VegoCaseStudy
+**المسار:** `src/components/case-study/VegoCaseStudy.tsx` — الصفحة: `src/app/work/vego/page.tsx` (`/work/vego`)
 
-**المحتوى:**
-- شبكة من بطاقات الخدمات
-- كل بطاقة تحتوي على:
-  - أيقونة
-  - عنوان
-  - وصف
+**المحتوى:** الرأس، المقدمة، الفكرة، معلومات المشروع، المعرض، الخلفية، التحدي، المنهجية، النتائج، والمشروع التالي.
 
-**البيانات:** من `SERVICES` في `src/constants/data.ts`
-
----
-
-### ProjectsSection
-**المسار:** `src/components/sections/ProjectsSection.tsx`
-
-**الوصف:** قسم المشاريع
-
-**المحتوى:**
-- مشروع مميز (Featured Project)
-  - صورة كبيرة
-  - شعار
-  - وصف مفصل
-  - Tags
-  - رابط المشروع
-- مشاريع ثانوية (Grid)
-  - صورة
-  - عنوان
-  - وصف مختصر
-
-**البيانات:** من `PROJECTS` في `src/constants/data.ts`
-
----
-
-### ContactSection
-**المسار:** `src/components/sections/ContactSection.tsx`
-
-**الوصف:** قسم التواصل
-
-**المحتوى:**
-- بطاقة معلومات التواصل
-  - الموقع
-  - البريد الإلكتروني
-  - الهاتف
-  - روابط السوشيال ميديا
-- نموذج حجز استشارة
-  - الاسم الكامل
-  - البريد الإلكتروني
-  - نوع الاستشارة
-  - تفاصيل الطلب
-
-**المميزات:**
-- Form validation
-- رسالة نجاح بعد الإرسال
-- تفريغ النموذج تلقائياً
+**البيانات:** `VEGO_CASE_STUDY` (تتضمن `meta` المستخدمة في metadata الصفحة).
 
 ---
 
@@ -154,56 +137,25 @@
 ### useLanguage
 **المسار:** `src/hooks/useLanguage.tsx`
 
-**الوصف:** Hook لإدارة اللغة
-
-**الاستخدام:**
 ```tsx
 const { language, toggleLanguage, t } = useLanguage();
 
-// قراءة اللغة الحالية
-console.log(language); // 'ar' or 'en'
-
-// تبديل اللغة
-<button onClick={toggleLanguage}>تبديل</button>
-
-// ترجمة نص
-const text = t({ ar: 'مرحبا', en: 'Hello' });
+t({ ar: 'مرحبا', en: 'Hello' }); // حسب اللغة الحالية
 ```
 
 **Returns:**
-- `language: 'ar' | 'en'` - اللغة الحالية
-- `toggleLanguage: () => void` - دالة تبديل اللغة
-- `t: (translation: Translation) => string` - دالة الترجمة
+- `language: 'ar' | 'en'` - اللغة الحالية (تُحفظ في localStorage وتضبط `lang` و `dir` على `<html>`)
+- `toggleLanguage: () => void`
+- `t: (translation: Translation) => string`
+
+> تم حذف `useTheme` لأن الموقع داكن فقط حالياً.
 
 ---
 
-### useTheme
-**المسار:** `src/hooks/useTheme.tsx`
+## 📊 البيانات (Data)
 
-**الوصف:** Hook لإدارة الثيم (فاتح/داكن)
+كل النصوص في `src/constants/data.ts` بصيغة `Translation`:
 
-**الاستخدام:**
-```tsx
-const { theme, toggleTheme } = useTheme();
-
-// قراءة الثيم الحالي
-console.log(theme); // 'light' or 'dark'
-
-// تبديل الثيم
-<button onClick={toggleTheme}>
-  {theme === 'dark' ? '🌞' : '🌙'}
-</button>
-```
-
-**Returns:**
-- `theme: 'light' | 'dark'` - الثيم الحالي
-- `toggleTheme: () => void` - دالة تبديل الثيم
-
----
-
-## 📊 Data Structure
-
-### Translation Object
 ```typescript
 interface Translation {
   ar: string;
@@ -211,17 +163,13 @@ interface Translation {
 }
 ```
 
-**مثال:**
-```typescript
-const title: Translation = {
-  ar: 'مرحباً',
-  en: 'Hello'
-};
-```
+- الأسهم جزء من النص: «←» للأمام في العربية و«→» في الإنجليزية.
+- النصوص الإنجليزية التي تحتاج مراجعة معلّمة بـ `// TODO: review EN copy`.
+- الأنواع في `src/types/index.ts`.
 
 ---
 
-## 🎯 كيفية إضافة مكون جديد
+## 🎯 كيفية إضافة قسم جديد
 
 ### 1. إنشاء المكون
 
@@ -230,61 +178,49 @@ const title: Translation = {
 'use client';
 
 import { useLanguage } from '@/hooks/useLanguage';
+import { NEW_SECTION } from '@/constants/data';
 
 export default function NewSection() {
-  const { language, t } = useLanguage();
-  
+  const { t } = useLanguage();
+
   return (
-    <section className="py-20" id="new-section">
-      <div className="container">
-        <h2>{language === 'ar' ? 'عنوان جديد' : 'New Title'}</h2>
+    <section id="new-section" className="border-t border-line">
+      <div className="mx-auto max-w-page px-gutter py-section">
+        <h2 className="text-80 leading-[1.338] font-bold text-fg">{t(NEW_SECTION.heading)}</h2>
       </div>
     </section>
   );
 }
 ```
 
-### 2. إضافته للصفحة الرئيسية
-
-```tsx
-// src/app/page.tsx
-import NewSection from '@/components/sections/NewSection';
-
-export default function Home() {
-  return (
-    <>
-      <Header />
-      <main>
-        {/* ... */}
-        <NewSection />
-      </main>
-      <Footer />
-    </>
-  );
-}
-```
-
-### 3. إضافة البيانات (اختياري)
+### 2. إضافة البيانات
 
 ```typescript
 // src/constants/data.ts
-export const NEW_DATA = [
-  {
-    title: { ar: 'عنوان', en: 'Title' },
-    description: { ar: 'وصف', en: 'Description' }
-  }
-];
+export const NEW_SECTION = {
+  heading: { ar: 'عنوان جديد', en: 'New title' },
+};
+```
+
+### 3. إضافته للصفحة الرئيسية
+
+```tsx
+// src/app/page.tsx
+<main>
+  {/* ... */}
+  <NewSection />
+</main>
 ```
 
 ---
 
 ## 💡 نصائح
 
-1. **استخدم TypeScript:** لتجنب الأخطاء
-2. **فصل البيانات:** ضع البيانات في `constants/data.ts`
-3. **استخدم Hooks:** لإعادة استخدام المنطق
-4. **Component-Based:** كل قسم مكون مستقل
-5. **Clean Code:** اكتب كود نظيف وقابل للقراءة
+1. **استخدم الـ tokens:** لا تكتب ألواناً أو أحجاماً ثابتة؛ أضف token جديداً في `globals.css` عند الحاجة
+2. **الخصائص المنطقية:** `ps/pe` و `start/end` بدلاً من `pl/pr` و `left/right` (إلا لقص الصور)
+3. **فصل البيانات:** ضع النصوص في `constants/data.ts` بالعربية والإنجليزية
+4. **الصور:** استخدم `next/image`، و`preload` لصورة أعلى الصفحة فقط
+5. **الاختبار:** لا ترسل طلبات إلى الـ API الحقيقي أثناء الاختبار؛ استخدم ردوداً وهمية
 
 ---
 
