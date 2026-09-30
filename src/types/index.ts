@@ -10,16 +10,6 @@ export interface NavigationItem {
   label: Translation;
 }
 
-export interface ProjectCard {
-  id: string;
-  name: Translation;
-  description: Translation;
-  image: string;
-  tags: Translation[];
-  link?: string;
-  featured?: boolean;
-}
-
 export interface TimelineItem {
   title: Translation;
   subtitle?: Translation;
@@ -48,4 +38,16 @@ export interface ExpertiseArea {
   title: Translation;
   subtitle: Translation;
   description: Translation;
+}
+
+export interface WorkProject {
+  id: string;
+  title: Translation;
+  category: Translation;
+  tagline: Translation;
+  description: Translation;
+  tags: Translation[];
+  image: string;
+  logo?: { src: string; width: number; height: number };
+  caseStudy?: string;
 }

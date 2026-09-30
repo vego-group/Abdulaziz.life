@@ -22,6 +22,7 @@
   --color-accent: #2a6b49; /* buttons, labels */
   --color-accent-soft: #6f9b8c; /* index numbers, quote rule */
   --color-accent-bright: #4a8b65; /* case-study eyebrow */
+  --color-scrim: #090b0a; /* photo overlays (Work) */
   --color-glass: rgb(10 13 12 / 0.72); /* hero location badge */
   --color-nav: rgb(10 13 12 / 0.88); /* sticky nav */
   --color-numeral-stroke: rgb(111 155 140 / 0.4); /* outlined "20 30" numerals (accent-soft, sampled from Figma) */

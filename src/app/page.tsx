@@ -4,7 +4,7 @@ import HeroSection from '@/components/sections/HeroSection';
 import ImpactSection from '@/components/sections/ImpactSection';
 import AboutSection from '@/components/sections/AboutSection';
 import ExpertiseSection from '@/components/sections/ExpertiseSection';
-import ProjectsSection from '@/components/sections/ProjectsSection';
+import WorkSection from '@/components/sections/WorkSection';
 import ContactSection from '@/components/sections/ContactSection';
 
 export default function Home() {
@@ -16,7 +16,7 @@ export default function Home() {
         <ImpactSection />
         <AboutSection />
         <ExpertiseSection />
-        <ProjectsSection />
+        <WorkSection />
         <ContactSection />
       </main>
       <Footer />

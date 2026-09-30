@@ -1,11 +1,11 @@
 import { 
   NavigationItem, 
-  ProjectCard, 
   TimelineItem, 
   ContactInfo, 
   SocialLink, 
   ImpactStat,
   ExpertiseArea,
+  WorkProject,
   Translation
 } from '@/types';
 
@@ -22,7 +22,7 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
 export const EXPERTISE = {
   heading: {
     ar: 'نحوّل الرؤية إلى استراتيجيات عملية، ونقود الأعمال نحو نمو مستدام وأثر ملموس.',
-    en: 'We turn vision into practical strategy and lead businesses toward sustainable growth and tangible impact.', // TODO: review EN copy
+    en: 'Turning vision into strategy, and strategy into sustainable growth.', // TODO: review EN copy
   },
   note: {
     ar: 'أربعة مجالات متكاملة من الخبرة والممارسة — مبنية على أكثر من 15 عامًا في السوق السعودية.',
@@ -67,49 +67,122 @@ export const EXPERTISE_AREAS: ExpertiseArea[] = [
   },
 ];
 
-export const PROJECTS: ProjectCard[] = [
+export const WORK = {
+  heading: {
+    ar: 'نحوّل الأفكار إلى حلول، والطموحات إلى نتائج، ونصنع أثرًا حقيقيًا يدفع الأعمال إلى الأمام.',
+    en: 'Ideas into solutions, ambition into results — and real impact.', // TODO: review EN copy
+  },
+  note: {
+    ar: 'أعمال ومبادرات وتحولات مبنية عبر الاستراتيجية والابتكار وإنشاء المشاريع.',
+    en: 'Work, initiatives and transformations built through strategy, innovation and venture creation.', // TODO: review EN copy
+  },
+  viewProject: { ar: 'عرض المشروع ←', en: 'View project →' }, // TODO: review EN copy
+};
+
+// Tags are listed in reading order. Only projects with a caseStudy route get "view project" links.
+export const WORK_PROJECTS: WorkProject[] = [
   {
     id: 'vego',
-    name: { ar: 'فيجو (Vego)', en: 'Vego' },
-    description: { 
-      ar: 'أول شركة سعودية متخصصة في تصنيع حلول النقل الكهربائي عالميًا، تأسست عام ٢٠٢٠م بمهمة واضحة — تحويل طريقة تعامل العالم مع النقل من خلال تقديم حلول نقل مستدامة ومبتكرة، للمساهمة في تكوين بيئة نظيفة وأكثر خضرة.', 
-      en: 'Saudi Arabia\'s first company specializing in the global manufacturing of electric transport solutions, founded in 2020 with a clear mission — to transform the world\'s approach to mobility through sustainable, innovative transport solutions that contribute to a cleaner and greener planet.' 
+    title: { ar: 'VEGO', en: 'VEGO' },
+    category: { ar: 'حركة كهربائية · مؤسس · 2022 – الآن', en: 'Electric mobility · Founder · 2022 – present' }, // TODO: review EN copy
+    tagline: { ar: 'إعادة تصور التنقل عبر الطاقة النظيفة.', en: 'Reimagining mobility through clean energy.' }, // TODO: review EN copy
+    description: {
+      ar: 'أول شركة سعودية متخصصة في التنقل الكهربائي — بناء البنية التحتية والمركبات والمنظومة المتكاملة لمستقبل خالٍ من الانبعاثات.',
+      en: "Saudi Arabia's first company dedicated to electric mobility — building the infrastructure, vehicles and ecosystem for a zero-emission future.", // TODO: review EN copy
     },
-    image: '/images/vego-group.webp',
     tags: [
-      { ar: 'كهربائي', en: 'Electric' },
-      { ar: 'استدامة', en: 'Sustainability' },
-      { ar: 'نقل', en: 'Mobility' },
-      { ar: 'رؤية 2030', en: 'Vision 2030' },
+      { ar: 'تقنية نظيفة', en: 'Clean tech' }, // TODO: review EN copy
+      { ar: 'تنقل', en: 'Mobility' }, // TODO: review EN copy
+      { ar: 'مشروع', en: 'Venture' }, // TODO: review EN copy
     ],
-    link: 'https://www.vego.sa/',
-    featured: true,
+    image: '/images/work/vego.jpg',
+    caseStudy: '/work/vego',
   },
   {
-    id: 'digital-real-estate',
-    name: { 
-      ar: 'مبادرة التحول الرقمي العقاري', 
-      en: 'Real Estate Digital Transformation' 
+    id: 'business-transformation',
+    title: { ar: 'تحول الأعمال', en: 'Business Transformation' }, // TODO: review EN copy
+    category: { ar: 'استراتيجية واستشارات · مستشار استراتيجي', en: 'Strategy & advisory · Strategic advisor' }, // TODO: review EN copy
+    tagline: { ar: 'استشارات استراتيجية للمؤسسة السعودية المتطورة.', en: 'Strategic advisory for the evolving Saudi enterprise.' }, // TODO: review EN copy
+    description: {
+      ar: 'العمل مع المؤسسات السعودية الراسخة في تكليفات تشمل الاستراتيجية المؤسسية وإعادة تصميم العمليات والتموضع طويل المدى.',
+      en: 'Working with established Saudi organisations on mandates spanning corporate strategy, operating-model redesign and long-term positioning.', // TODO: review EN copy
     },
-    description: { 
-      ar: 'تطوير حلول تقنية متكاملة لإدارة الأصول العقارية وتسهيل العمليات الاستثمارية.', 
-      en: 'Developing integrated technology solutions for real estate asset management and streamlining investment operations.' 
-    },
-    image: '/images/digital-real-estate.jpg',
-    tags: [],
+    tags: [
+      { ar: 'تحول', en: 'Transformation' }, // TODO: review EN copy
+      { ar: 'استشارات', en: 'Advisory' }, // TODO: review EN copy
+      { ar: 'استراتيجية', en: 'Strategy' }, // TODO: review EN copy
+    ],
+    image: '/images/work/business-transformation.jpg',
   },
   {
-    id: 'energy-efficiency',
-    name: { 
-      ar: 'مركز كفاءة الطاقة', 
-      en: 'Energy Efficiency Center' 
+    id: 'venture-ecosystem',
+    title: { ar: 'منظومة المشاريع', en: 'Venture Ecosystem' }, // TODO: review EN copy
+    category: { ar: 'بناء المشاريع · شريك مؤسس ومستشار', en: 'Venture building · Co-founder & advisor' }, // TODO: review EN copy
+    tagline: { ar: 'البناء جنبًا إلى جنب مع جيل المؤسسين السعودي القادم.', en: 'Building alongside the next generation of Saudi founders.' }, // TODO: review EN copy
+    description: {
+      ar: 'دعم المشاريع الجديدة من مرحلة الفكرة حتى دخول السوق — بناء أعمال متينة هيكليًا ومتموضعة استراتيجيًا.',
+      en: 'Supporting new ventures from idea to market entry — building businesses that are structurally sound and strategically positioned.', // TODO: review EN copy
     },
-    description: { 
-      ar: 'تقديم استشارات متخصصة لرفع كفاءة استهلاك الطاقة في المنشآت الصناعية الكبرى.', 
-      en: 'Providing specialized consulting to improve energy consumption efficiency across large industrial facilities.' 
+    tags: [
+      { ar: 'استشارات', en: 'Advisory' }, // TODO: review EN copy
+      { ar: 'منظومة', en: 'Ecosystem' }, // TODO: review EN copy
+      { ar: 'مشاريع', en: 'Ventures' }, // TODO: review EN copy
+    ],
+    image: '/images/work/ventures-ecosystem.jpg',
+  },
+  {
+    id: 'mamsa',
+    title: { ar: 'ممسى', en: 'Mamsa' }, // TODO: review EN copy
+    category: { ar: 'منصة فندقية', en: 'Hospitality platform' }, // TODO: review EN copy
+    tagline: {
+      ar: 'تجربة رقمية متكاملة لاستكشاف واستئجار الوحدات السكنية والفندقية.',
+      en: 'An end-to-end digital experience for finding and renting residential and hotel units.', // TODO: review EN copy
     },
-    image: '/images/energy-efficiency-industry.jpg',
-    tags: [],
+    description: {
+      ar: 'منصة فندقية تتيح للمستخدمين اكتشاف وحجز واستئجار مجموعة متنوعة من الوحدات السكنية والفندقية، مع تجربة سلسة لإدارة الحجوزات والإقامات.',
+      en: 'A hospitality platform for discovering, booking and renting a wide range of residential and hotel units, with a seamless way to manage bookings and stays.', // TODO: review EN copy
+    },
+    tags: [
+      { ar: 'عقارات', en: 'Real estate' }, // TODO: review EN copy
+      { ar: 'تطوير', en: 'Development' }, // TODO: review EN copy
+      { ar: 'استثمار', en: 'Investment' }, // TODO: review EN copy
+    ],
+    image: '/images/work/mamsa.png',
+    logo: { src: '/logos/mamsa.svg', width: 200, height: 95 },
+  },
+  {
+    id: 'ithaba',
+    title: { ar: 'إثابة', en: 'Ithaba' }, // TODO: review EN copy
+    category: { ar: 'تطوير واستثمار', en: 'Development & investment' }, // TODO: review EN copy
+    tagline: { ar: 'تمليك عقاري يفتح فرصًا استثمارية مستدامة.', en: 'Property ownership that opens sustainable investment opportunities.' }, // TODO: review EN copy
+    description: {
+      ar: 'منصة استثمار عقاري تتيح للمستثمرين امتلاك حصص جزئية في عقارات مختارة، وفتح فرص الاستثمار العقاري أمام شريحة أكبر من المستثمرين بمبالغ أكثر مرونة.',
+      en: 'A real-estate investment platform that lets investors own fractional shares in selected properties, opening real-estate investing to more people with more flexible amounts.', // TODO: review EN copy
+    },
+    tags: [
+      { ar: 'تطوير', en: 'Development' }, // TODO: review EN copy
+      { ar: 'عمران', en: 'Urban' }, // TODO: review EN copy
+      { ar: 'قيمة', en: 'Value' }, // TODO: review EN copy
+    ],
+    image: '/images/work/ithaba.png',
+    logo: { src: '/logos/ithaba.svg', width: 99.84, height: 61 },
+  },
+  {
+    id: 'ev-share',
+    title: { ar: 'EV Share', en: 'EV Share' },
+    category: { ar: 'التنقل الكهربائي', en: 'Electric mobility' }, // TODO: review EN copy
+    tagline: { ar: 'حلول مبتكرة للتنقل الكهربائي المستدام.', en: 'Innovative solutions for sustainable electric mobility.' }, // TODO: review EN copy
+    description: {
+      ar: 'العمل على تطوير حلول تنقل كهربائي تُمكّن الأفراد والمؤسسات من الوصول إلى المركبات الكهربائية واستخدامها بطريقة أكثر مرونة وكفاءة.',
+      en: 'Developing electric-mobility solutions that let individuals and organisations access and use electric vehicles more flexibly and efficiently.', // TODO: review EN copy
+    },
+    // Same tags as Mamsa in the design (including "عقارات").
+    tags: [
+      { ar: 'عقارات', en: 'Real estate' }, // TODO: review EN copy
+      { ar: 'تطوير', en: 'Development' }, // TODO: review EN copy
+      { ar: 'استثمار', en: 'Investment' }, // TODO: review EN copy
+    ],
+    image: '/images/work/ev-share.png',
   },
 ];
 
