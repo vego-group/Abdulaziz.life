@@ -211,12 +211,18 @@ export const LANGUAGES: Translation[] = [
   { ar: 'الإنجليزية (احترافية)', en: 'English (Professional)' },
 ];
 
-export const HERO_STRIPS: Translation[] = [
-  { ar: 'التفكير الاستراتيجي', en: 'Strategic Thinking' },
-  { ar: 'ابتكار بروبتك', en: 'PropTech Innovation' },
-  { ar: 'التنقل الأخضر', en: 'Green Mobility' },
-  { ar: 'رؤية 2030', en: 'Vision 2030' },
-];
+// Arrows are part of the copy: "←" points forward in Arabic, "→" in English.
+export const HERO = {
+  title: { ar: 'نبني ما يستحق أن يستمر.', en: 'Building what lasts.' }, // TODO: review EN copy
+  intro: {
+    ar: 'رائد أعمال سعودي ومستشار استراتيجي يعمل في مجالات التحول التجاري وبناء المشاريع والصناعات المستقبلية. مقيم في الرياض.',
+    en: 'A Saudi entrepreneur and strategic advisor working across business transformation, venture building and future industries. Based in Riyadh.', // TODO: review EN copy
+  },
+  primaryCta: { ar: 'استكشف الأعمال ←', en: 'Explore the Work →' }, // TODO: review EN copy
+  secondaryCta: { ar: 'احجز استشارة ↗', en: 'Book a Consultation ↗' },
+  locationLabel: { ar: 'مقيم في', en: 'Based in' }, // TODO: review EN copy
+  location: { ar: 'الرياض، المملكة العربية السعودية', en: 'Riyadh, Saudi Arabia' },
+} satisfies Record<string, Translation>;
 
 export const CONSULTATION_TYPES: Translation[] = [
   { ar: '— اختر نوع الاستشارة —', en: '— Select consultation type —' },
