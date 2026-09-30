@@ -25,6 +25,7 @@
 ### 🗑️ المحذوف
 - ServicesSection و ProjectsSection و MaterialIcon، والأنماط القديمة (الذهبي والكريمي)، وروابط Font Awesome و Material Symbols، وخطوط Cairo و Tajawal و Inter
 - الصور غير المستخدمة، وملفات SVG الافتراضية من create-next-app، و `public/robots.txt` المكرر
+- `pnpm-lock.yaml`: المشروع يستخدم npm و `package-lock.json` فقط
 - ملفات التوثيق القديمة: START-HERE.md و PROJECT-SUMMARY.md و QUICK-START.md
 
 ### 🐛 الإصلاحات

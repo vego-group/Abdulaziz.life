@@ -39,7 +39,7 @@
 
 1. Vercel ← **Add New** ← **Project** ← استورد `vego-group/Abdulaziz.life` من GitHub.
 2. **Framework Preset:** Next.js (يُكتشف تلقائياً). **Root Directory:** `./`.
-3. **Install Command:** `npm ci`. المستودع يحتوي على `package-lock.json` و `pnpm-lock.yaml` معاً، وتحديد الأمر يضمن استخدام npm.
+3. **Install Command:** `npm ci`، ليثبّت الإصدارات المقفلة في `package-lock.json` بالضبط (المشروع يستخدم npm فقط).
 4. **Node.js Version** (Settings ← Build and Deployment): ‎20.x أو أحدث، لأن Next.js 16 يتطلب ‎20.9 على الأقل.
 5. **Production Branch** (Settings ← Git): `main`.
 6. **Domains:** أضف `www.abdulaziz.life` كنطاق أساسي، واجعل `abdulaziz.life` يحوّل إليه، لأن `robots.ts` و `sitemap.ts` يستخدمان `https://www.abdulaziz.life`. أضف سجلات DNS كما يعرضها Vercel.
