@@ -16,12 +16,6 @@ export interface TimelineItem {
   date: string;
 }
 
-export interface ContactInfo {
-  icon: string;
-  label: Translation;
-  value: string;
-}
-
 export interface SocialLink {
   platform: string;
   url: string;

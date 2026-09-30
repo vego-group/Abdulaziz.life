@@ -1,7 +1,6 @@
 import { 
   NavigationItem, 
   TimelineItem, 
-  ContactInfo, 
   SocialLink, 
   ImpactStat,
   ExpertiseArea,
@@ -202,24 +201,6 @@ export const TIMELINE: TimelineItem[] = [
   },
 ];
 
-export const CONTACT_INFO: ContactInfo[] = [
-  {
-    icon: 'location_on',
-    label: { ar: 'الموقع', en: 'Location' },
-    value: 'الرياض، المملكة العربية السعودية',
-  },
-  {
-    icon: 'mail',
-    label: { ar: 'البريد الإلكتروني', en: 'Email' },
-    value: 'contact@abdulaziz.life',
-  },
-  {
-    icon: 'call',
-    label: { ar: 'رقم الجوال', en: 'Phone' },
-    value: '+966 55 507 1670',
-  },
-];
-
 export const SOCIAL_LINKS: SocialLink[] = [
   {
     platform: 'LinkedIn',
@@ -372,6 +353,64 @@ export const INSIGHTS = {
   ] satisfies Insight[],
 };
 
+export const CONTACT = {
+  heading: [
+    { ar: 'هل لديك فكرة تستحق البناء؟', en: 'Have an idea worth building?' }, // TODO: review EN copy
+    { ar: 'لنحوّلها معًا إلى أثر حقيقي.', en: "Let's turn it into real impact, together." }, // TODO: review EN copy
+  ],
+  intro: {
+    ar: 'سواء كنت تبني مشروعًا جديدًا، أو تستكشف فرصة استراتيجية، أو تسعى لتحويل فكرة طموحة إلى واقع ملموس — نحن هنا لنتحدث، نفهم رؤيتك، ونبدأ معًا في بناء ما هو قادم.',
+    en: "Whether you're building a new venture, exploring a strategic opportunity or turning an ambitious idea into reality — we're here to talk, understand your vision and start building what comes next, together.", // TODO: review EN copy
+  },
+  startCta: { ar: 'ابدأ المحادثة ↗', en: 'Start the conversation ↗' }, // TODO: review EN copy
+  contactLabel: { ar: 'تواصل', en: 'Contact' },
+  availableLabel: { ar: 'متاح لـ', en: 'Available for' }, // TODO: review EN copy
+  available: [
+    { ar: 'الاستشارات الاستراتيجية', en: 'Strategic advisory' }, // TODO: review EN copy
+    { ar: 'الشراكات', en: 'Partnerships' }, // TODO: review EN copy
+    { ar: 'المشاريع الجديدة', en: 'New ventures' }, // TODO: review EN copy
+  ],
+  formHeading: { ar: 'أخبرني ما الذي تبنيه.', en: "Tell me what you're building." }, // TODO: review EN copy
+  formIntro: {
+    ar: 'للاستشارات الاستراتيجية وفرص الشراكة والاستثمار أو أي محادثة تستحق البداية.',
+    en: 'For strategic advisory, partnership and investment opportunities — or any conversation worth starting.', // TODO: review EN copy
+  },
+  tagline: [
+    { ar: 'أفكار جيدة', en: 'Good ideas' }, // TODO: review EN copy
+    { ar: 'تستحق المضي أبعد.', en: 'deserve to go further.' }, // TODO: review EN copy
+  ],
+  formLabel: { ar: 'تواصل معنا', en: 'Get in touch' }, // TODO: review EN copy
+  fields: {
+    name: { label: { ar: 'الاسم الكامل', en: 'Full name' }, placeholder: { ar: 'اسمك', en: 'Your name' } }, // TODO: review EN copy
+    email: {
+      label: { ar: 'البريد الإلكتروني', en: 'Email' },
+      placeholder: { ar: 'بريدك@مثال.com', en: 'you@example.com' },
+    },
+    company: {
+      label: { ar: 'الشركة / المنظمة', en: 'Company / organisation' }, // TODO: review EN copy
+      placeholder: { ar: 'الشركة (اختياري)', en: 'Company (optional)' }, // TODO: review EN copy
+    },
+    topic: {
+      label: { ar: 'ما الذي تودّ مناقشته؟', en: 'What would you like to discuss?' }, // TODO: review EN copy
+      placeholder: { ar: 'اختر موضوعًا', en: 'Choose a topic' }, // TODO: review EN copy
+    },
+    message: {
+      label: { ar: 'الرسالة', en: 'Message' }, // TODO: review EN copy
+      placeholder: { ar: 'أخبرني عن مشروعك أو تحديك...', en: 'Tell me about your project or challenge...' }, // TODO: review EN copy
+    },
+  },
+  // Sent in request_details, since the API has no company field.
+  companyPrefix: { ar: 'الشركة: ', en: 'Company: ' },
+  submit: { ar: 'إرسال الرسالة', en: 'Send message' }, // TODO: review EN copy
+  sending: { ar: 'جارٍ الإرسال...', en: 'Sending...' },
+  success: { ar: 'تم إرسال طلبك بنجاح!', en: 'Request sent successfully!' },
+  invalid: { ar: 'يرجى التأكد من صحة البيانات المدخلة', en: 'Please check the details you entered.' }, // TODO: review EN copy
+  failed: {
+    ar: 'حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.',
+    en: 'An error occurred while submitting. Please try again.',
+  },
+};
+
 // Arrows are part of the copy: "←" points forward in Arabic, "→" in English.
 export const HERO = {
   title: { ar: 'نبني ما يستحق أن يستمر.', en: 'Building what lasts.' }, // TODO: review EN copy
@@ -386,7 +425,6 @@ export const HERO = {
 } satisfies Record<string, Translation>;
 
 export const CONSULTATION_TYPES: Translation[] = [
-  { ar: '— اختر نوع الاستشارة —', en: '— Select consultation type —' },
   { ar: 'ريادة أعمال', en: 'Entrepreneurship' },
   { ar: 'إنشاء الشركات', en: 'Company Formation' },
   { ar: 'نموذج العمل Business Model', en: 'Business Model' },

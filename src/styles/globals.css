@@ -25,6 +25,7 @@
   --color-scrim: #090b0a; /* photo overlays (Work) */
   --color-glass: rgb(10 13 12 / 0.72); /* hero location badge */
   --color-nav: rgb(10 13 12 / 0.88); /* sticky nav */
+  --color-danger: #ef4444; /* form errors (not in the design; same red as the previous site) */
   --color-numeral-stroke: rgb(111 155 140 / 0.4); /* outlined "20 30" numerals (accent-soft, sampled from Figma) */
 
   /* Type scale — fixed UI sizes (Figma px). Default line height 1.6 matches most Figma text. */

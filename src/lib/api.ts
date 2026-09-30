@@ -11,7 +11,7 @@ export interface ConsultationRequest {
   request_details: string;
 }
 
-export interface ApiResponse<T = any> {
+export interface ApiResponse<T = unknown> {
   success: boolean;
   data?: T;
   message?: string;
@@ -81,6 +81,11 @@ export function validateConsultationRequest(
 
   if (!data.consultation_type) {
     errors.push('Please select a consultation type');
+  }
+
+  // The API rejects requests without details (422).
+  if (!data.request_details || !data.request_details.trim()) {
+    errors.push('Please tell us about your request');
   }
 
   return {
