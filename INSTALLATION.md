@@ -48,7 +48,7 @@ npm run build
 npm start
 ```
 
-أو على Vercel: استورد المستودع من [vercel.com](https://vercel.com)، وأضف `NEXT_PUBLIC_API_URL` في إعدادات البيئة إذا كان العنوان مختلفاً.
+الموقع يُنشر على Vercel من GitHub (Preview لكل فرع، والإنتاج عند الدمج في `main`). التفاصيل في [DEPLOYMENT.md](DEPLOYMENT.md).
 
 قبل النشر:
 - [ ] `npm run lint` بدون أخطاء

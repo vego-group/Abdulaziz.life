@@ -27,7 +27,7 @@ npm run lint
 npm run build && npm start
 ```
 
-التفاصيل وحل المشاكل في [INSTALLATION.md](INSTALLATION.md).
+التفاصيل وحل المشاكل في [INSTALLATION.md](INSTALLATION.md)، والنشر على Vercel في [DEPLOYMENT.md](DEPLOYMENT.md).
 
 ## هيكل المشروع
 

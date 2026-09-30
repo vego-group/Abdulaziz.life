@@ -4,6 +4,43 @@
 
 ---
 
+## [2.0.0] - 2026-09-30 — إعادة التصميم
+
+### ✨ الجديد
+- تصميم جديد بالكامل من ملف Figma «عبدالعزيز بورتفوليو»: واجهة داكنة بلون أخضر مميز، وخطوط IBM Plex Sans Arabic و Instrument Sans و DM Mono و Geist عبر `next/font`
+- design tokens (الألوان، أحجام الخط المتجاوبة، المسافات، الزوايا) في `@theme` الخاص بـ Tailwind v4 داخل `src/styles/globals.css`
+- أقسام الصفحة الرئيسية: Hero، Impact، About (السيرة، الملف الشخصي والتعليم، القطاعات)، Expertise، Work، Vision، شريط الاقتباس، Insights، Contact، Footer
+- صفحة دراسة حالة فيغو `/work/vego` مع metadata خاصة
+- مكونات UI جديدة: SectionIntro و Tag و OutlineNumerals
+- `/sitemap.xml` عبر `src/app/sitemap.ts`
+- نموذج التواصل: حقل الشركة (يُضاف إلى `request_details`)، واختيار الموضوع والرسالة إلزاميان
+
+### 🔄 التغييرات
+- الموقع داكن فقط حالياً؛ حُذف زر تبديل الثيم و `useTheme`، والألوان متغيرات CSS لإضافة ثيم فاتح لاحقاً
+- روابط التنقل بترتيب الصفحة: نبذة، الخبرات، الأعمال، المقالات، تواصل
+- الشريط العلوي ثابت: شفاف أعلى الصفحة وداكن مع التمرير
+- `useLanguage` يقرأ اللغة المحفوظة عبر `useSyncExternalStore`
+- رسائل الخطأ في النموذج واضحة باللغتين بدل أخطاء الشبكة التقنية
+
+### 🗑️ المحذوف
+- ServicesSection و ProjectsSection و MaterialIcon، والأنماط القديمة (الذهبي والكريمي)، وروابط Font Awesome و Material Symbols، وخطوط Cairo و Tajawal و Inter
+- الصور غير المستخدمة، وملفات SVG الافتراضية من create-next-app، و `public/robots.txt` المكرر
+- ملفات التوثيق القديمة: START-HERE.md و PROJECT-SUMMARY.md و QUICK-START.md
+
+### 🐛 الإصلاحات
+- Tailwind v4 لم يكن يولّد الـ utilities بسبب توجيهات v3 في `globals.css`
+- `/robots.txt` كان يعيد خطأ 500 في وضع التطوير (تعارض بين `public/robots.txt` و `app/robots.ts`)
+- `/sitemap.xml` المشار إليه في robots لم يكن موجوداً
+- الـ API يرفض الطلبات بدون `request_details`؛ أصبحت الرسالة إلزامية في النموذج
+- تحذير hydration بسبب إضافات المتصفح على `<body>`
+- أخطاء lint في `api.ts` (`any`) و `useLanguage` (setState داخل effect)
+
+### 📝 التوثيق
+- تحديث README و INSTALLATION و API-INTEGRATION و DEPLOYMENT و COMPONENTS
+- النصوص الإنجليزية المكتوبة أثناء إعادة التصميم معلّمة بـ `// TODO: review EN copy` بانتظار المراجعة
+
+---
+
 ## [1.0.0] - 2024-12-20
 
 ### ✨ الإضافات الرئيسية

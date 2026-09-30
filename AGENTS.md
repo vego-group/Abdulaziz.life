@@ -3,3 +3,17 @@
 
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
 <!-- END:nextjs-agent-rules -->
+
+# Project rules
+
+## External services
+
+- Never send requests to production APIs or create real data without asking first. This includes the contact form endpoint (`https://api.vego.sa/api/consultation-requests`): every successful request creates a real record for the VEGO team. Test with mocked responses instead (a local mock server set through `NEXT_PUBLIC_API_URL`, or intercepting the request in the browser); see API-INTEGRATION.md.
+
+## Codebase conventions
+
+- Design tokens (colors, type scale, spacing, radius) are defined in `src/styles/globals.css` (`@theme`, Tailwind v4). Use them instead of hard-coded values. The site is dark-only; there is no theme toggle.
+- The site is Arabic-first (RTL) with an English version. Use logical utilities (`ps`/`pe`, `ms`/`me`, `start`/`end`, `border-s`/`border-e`) so layouts mirror in English.
+- All copy lives in `src/constants/data.ts` as `{ ar, en }`. English drafts awaiting review are marked `// TODO: review EN copy`.
+- Components, their props and their data sources are documented in COMPONENTS.md.
+- Run `npm run lint` and `npm run build` before committing.
