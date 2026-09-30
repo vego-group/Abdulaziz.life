@@ -325,6 +325,10 @@ export const VISION = {
     ar: 'نبني اليوم برؤية تصنع فرص الغد، ونحوّل التحديات إلى نمو مستدام وأثر حقيقي.',
     en: "Building today for tomorrow's opportunities — and lasting impact.", // TODO: review EN copy
   },
+  stripeQuote: {
+    ar: '"أفضل الأعمال لا تكتفي بالتكيّف مع المستقبل، بل تساعد على بنائه."',
+    en: '"The best businesses don\'t just adapt to the future — they help build it."', // TODO: review EN copy
+  },
   pillars: [
     {
       title: { ar: 'الأعمال', en: 'Business' }, // TODO: review EN copy
