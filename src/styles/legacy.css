@@ -25,7 +25,7 @@ html[lang="en"] {
   padding: 5rem 0;
 }
 
-.container {
+:where(.section-about, .services-bg, .projects-bg, .contact-bg) .container {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 1.5rem;
@@ -726,7 +726,7 @@ html.dark .booking-title {
   grid-column: 1 / -1;
 }
 
-label {
+.form-grid label {
   font-size: 0.8rem;
   font-weight: 700;
   color: var(--primary-container);
@@ -736,9 +736,9 @@ html.dark label {
   color: #b0b4ba;
 }
 
-input,
-select,
-textarea {
+.form-grid input,
+.form-grid select,
+.form-grid textarea {
   width: 100%;
   padding: 0.7rem 1rem;
   background: rgba(255, 255, 255, 0.75);
@@ -751,9 +751,9 @@ textarea {
   transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
 }
 
-html[lang="en"] input,
-html[lang="en"] select,
-html[lang="en"] textarea {
+html[lang="en"] .form-grid input,
+html[lang="en"] .form-grid select,
+html[lang="en"] .form-grid textarea {
   font-family: 'Inter', sans-serif;
 }
 
@@ -765,9 +765,9 @@ html.dark textarea {
   border-color: rgba(198, 161, 91, 0.2);
 }
 
-input:focus,
-select:focus,
-textarea:focus {
+.form-grid input:focus,
+.form-grid select:focus,
+.form-grid textarea:focus {
   border-color: var(--gold);
   box-shadow: 0 0 0 3px rgba(198, 161, 91, 0.1);
   background: rgba(255, 255, 255, 0.92);
@@ -779,7 +779,7 @@ html.dark textarea:focus {
   background: rgba(255, 255, 255, 0.1);
 }
 
-textarea {
+.form-grid textarea {
   resize: vertical;
   min-height: 110px;
 }
@@ -818,7 +818,7 @@ html[lang="en"] .btn-submit {
 }
 
 /* FOOTER */
-footer {
+footer:has(> .footer-inner) {
   background: var(--surface-low);
   border-top: 1px solid rgba(198, 161, 91, 0.15);
   padding: 2.25rem 0;
@@ -948,9 +948,6 @@ html.dark .footer-icon-btn {
   color: var(--on-surface-variant);
 }
 
-.col-span-2 {
-  grid-column: span 2;
-}
 
 
 .section-title1 {
