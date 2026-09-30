@@ -6,7 +6,8 @@ import {
   ContactInfo, 
   SocialLink, 
   StatCard,
-  Translation 
+  ImpactStat,
+  Translation
 } from '@/types';
 
 // Page order; in Arabic (RTL) the first item sits next to the logo.
@@ -194,6 +195,29 @@ export const STATS: StatCard[] = [
     value: 'مؤسس شركة فيجو',
     label: { ar: 'الريادة في النقل الكهربائي', en: 'Pioneer in Electric Mobility' },
     wide: true,
+  },
+];
+
+export const IMPACT_STATS: ImpactStat[] = [
+  {
+    value: '+ 15',
+    label: { ar: 'سنوات الخبرة', en: 'Years of Experience' },
+    description: { ar: 'عبر الاستراتيجية والتحول وبناء المشاريع', en: 'Across strategy, transformation and venture building' }, // TODO: review EN copy
+  },
+  {
+    value: '03',
+    label: { ar: 'قطاعات استراتيجية', en: 'Strategic Sectors' },
+    description: { ar: 'الأعمال، التكنولوجيا، والتنقل', en: 'Business, technology and mobility' }, // TODO: review EN copy
+  },
+  {
+    value: '+ 04',
+    label: { ar: 'مشاريع ومبادرات', en: 'Ventures & Initiatives' }, // TODO: review EN copy
+    description: { ar: 'تأسيسًا ومشاركةً في المملكة العربية السعودية', en: 'Founded and co-founded in Saudi Arabia' }, // TODO: review EN copy
+  },
+  {
+    value: '2030',
+    label: { ar: 'أثر موجَّه نحو المستقبل', en: 'Future-Focused Impact' }, // TODO: review EN copy
+    description: { ar: 'متوافق مع رؤية 2030 وصناعات العصر القادم', en: 'Aligned with Vision 2030 and next-generation industries' }, // TODO: review EN copy
   },
 ];
 

@@ -46,6 +46,12 @@ export interface SocialLink {
   icon: string;
 }
 
+export interface ImpactStat {
+  value: string;
+  label: Translation;
+  description: Translation;
+}
+
 export interface StatCard {
   icon: string;
   value: string;
