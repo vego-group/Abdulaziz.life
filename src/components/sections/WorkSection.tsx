@@ -31,7 +31,9 @@ export default function WorkSection() {
 
   return (
     <section id="work" className="border-t border-line">
-      <SectionIntro heading={t(WORK.heading)} note={t(WORK.note)} />
+      {/* Browsers keep Arabic letters joined (no negative tracking), so at 946px this heading takes 4 lines.
+          995px restores Figma's 3-line break (longest line 992px) and still clears the note by 44px. */}
+      <SectionIntro heading={t(WORK.heading)} note={t(WORK.note)} headingWidthClass="max-w-[min(995px,72.7vw)]" />
 
       <div className="pt-12 lg:pt-22">
         <FeaturedProject project={featured} />

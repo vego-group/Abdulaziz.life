@@ -177,6 +177,7 @@ export const WORK_PROJECTS: WorkProject[] = [
       en: 'Developing electric-mobility solutions that let individuals and organisations access and use electric vehicles more flexibly and efficiently.', // TODO: review EN copy
     },
     // Same tags as Mamsa in the design (including "عقارات").
+    // TODO: confirm EV Share tags
     tags: [
       { ar: 'عقارات', en: 'Real estate' }, // TODO: review EN copy
       { ar: 'تطوير', en: 'Development' }, // TODO: review EN copy

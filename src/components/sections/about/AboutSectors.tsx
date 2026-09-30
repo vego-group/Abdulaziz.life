@@ -8,8 +8,7 @@ export default function AboutSectors() {
   const { language, t } = useLanguage();
 
   return (
-    // The large bottom padding reproduces the empty space at the end of About in the Figma frame.
-    <div className="relative mx-auto max-w-page px-gutter py-16 lg:ps-gutter-lg lg:pe-gutter-md lg:pt-section lg:pb-[287px]">
+    <div className="relative mx-auto max-w-page px-gutter py-16 lg:ps-gutter-lg lg:pe-gutter-md lg:py-section">
       <OutlineNumerals className="absolute end-18 top-[108px] max-lg:hidden" />
 
       <h3 className="text-32 leading-4 font-medium tracking-label text-white">{t(ABOUT.sectorsTitle)}</h3>
