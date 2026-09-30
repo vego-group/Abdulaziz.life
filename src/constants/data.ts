@@ -1,11 +1,11 @@
 import { 
   NavigationItem, 
-  ServiceCard, 
   ProjectCard, 
   TimelineItem, 
   ContactInfo, 
   SocialLink, 
   ImpactStat,
+  ExpertiseArea,
   Translation
 } from '@/types';
 
@@ -19,62 +19,51 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
   { href: '/#contact', label: { ar: 'تواصل', en: 'Contact' } },
 ];
 
-export const SERVICES: ServiceCard[] = [
+export const EXPERTISE = {
+  heading: {
+    ar: 'نحوّل الرؤية إلى استراتيجيات عملية، ونقود الأعمال نحو نمو مستدام وأثر ملموس.',
+    en: 'We turn vision into practical strategy and lead businesses toward sustainable growth and tangible impact.', // TODO: review EN copy
+  },
+  note: {
+    ar: 'أربعة مجالات متكاملة من الخبرة والممارسة — مبنية على أكثر من 15 عامًا في السوق السعودية.',
+    en: 'Four integrated areas of expertise and practice — built on more than 15 years in the Saudi market.', // TODO: review EN copy
+  },
+  location: { ar: 'الرياض، المملكة العربية السعودية', en: 'Riyadh, Saudi Arabia' },
+  cta: { ar: 'ناقش متطلباتك ←', en: 'Discuss your needs →' }, // TODO: review EN copy
+};
+
+export const EXPERTISE_AREAS: ExpertiseArea[] = [
   {
-    icon: 'strategy',
-    title: { 
-      ar: 'استشارات الأعمال الاستراتيجية', 
-      en: 'Strategic Business Consulting' 
-    },
-    description: { 
-      ar: 'خدمات متخصصة تهدف إلى تمكين المؤسسات من صياغة رؤيتها المستقبلية، واتخاذ قرارات مهمة تعزز قدرتها على المنافسة والنمو، ووضع خطط طويلة المدى من خلال تحليل السوق والفرص والتحديات.', 
-      en: 'Specialized services designed to empower organizations to craft their future vision, make pivotal decisions that strengthen competitiveness, and build long-term plans through thorough market, opportunity, and challenge analysis.' 
+    title: { ar: 'استراتيجية الأعمال', en: 'Business Strategy' }, // TODO: review EN copy
+    subtitle: { ar: 'التوجه الاستراتيجي والنمو', en: 'Strategic direction & growth' }, // TODO: review EN copy
+    description: {
+      ar: 'الاستراتيجية ونماذج الأعمال وتوجهات النمو والشراكات والتموضع طويل المدى للمؤسسات الراسخة والمشاريع الجديدة في المملكة العربية السعودية والمنطقة.',
+      en: 'Strategy, business models, growth direction, partnerships and long-term positioning for established organisations and new ventures in Saudi Arabia and the region.', // TODO: review EN copy
     },
   },
   {
-    icon: 'ev_station',
-    title: { 
-      ar: 'إيجاد حلول للتنقل الكهربائي', 
-      en: 'Electric Mobility Solutions' 
-    },
-    description: { 
-      ar: 'حلول التنقل الكهربائي هي منظومة من التقنيات ووسائل نقل تعمل بالطاقة الكهربائية، وتشمل السكوترات والدراجات والمركبات الكهربائية ومحطات الشحن، بهدف تقليل الانبعاثات وتحسين التنقل.', 
-      en: 'Electric mobility encompasses a range of electric-powered transport technologies — scooters, bicycles, EVs, and charging infrastructure — aimed at reducing emissions and improving the quality of urban movement.' 
+    title: { ar: 'بناء المشاريع', en: 'Venture Building' }, // TODO: review EN copy
+    subtitle: { ar: 'من الفكرة إلى التنفيذ', en: 'From idea to execution' }, // TODO: review EN copy
+    description: {
+      ar: 'تصور المشاريع الجديدة وتأسيسها وتوسيع نطاقها من الصفر — تطوير المنتجات ودخول الأسواق وبناء المنظمات المصممة للاستدامة.',
+      en: 'Conceiving, founding and scaling new ventures from the ground up — product development, market entry and building organisations designed to last.', // TODO: review EN copy
     },
   },
   {
-    icon: 'factory',
-    title: { 
-      ar: 'تطوير العمليات الصناعية', 
-      en: 'Industrial Process Development' 
-    },
-    description: { 
-      ar: 'عملية منهجية تهدف إلى التحسين المستمر لأساليب العمل في المصانع، باستخدام أدوات مثل الأتمتة والرقمنة وتوحيد الإجراءات وإعادة هندسة العمليات.', 
-      en: 'A systematic approach to continuous improvement of manufacturing workflows — leveraging automation, digitization, procedure standardization, and business process re-engineering to achieve higher output, better quality, and lower cost.' 
+    title: { ar: 'الابتكار والتكنولوجيا', en: 'Innovation & Technology' }, // TODO: review EN copy
+    subtitle: { ar: 'الفرص المدفوعة بالتكنولوجيا', en: 'Technology-driven opportunity' }, // TODO: review EN copy
+    description: {
+      ar: 'التنقل الكهربائي والتحول الرقمي ونماذج الأعمال الناشئة. تحويل التحولات التكنولوجية إلى ميزة تنافسية ملموسة ومواقع سوقية جديدة.',
+      en: 'Electric mobility, digital transformation and emerging business models — turning technological shifts into real competitive advantage and new market positions.', // TODO: review EN copy
     },
   },
   {
-    icon: 'domain',
-    title: { 
-      ar: 'بروبتك الاستشارية', 
-      en: 'PropTech Advisory' 
+    title: { ar: 'التحول المؤسسي', en: 'Organisational Transformation' }, // TODO: review EN copy
+    subtitle: { ar: 'التطور التنظيمي', en: 'Organisational development' }, // TODO: review EN copy
+    description: {
+      ar: 'مساعدة المنظمات على التطور وتحسين العمليات وبناء قدرة نمو مستدامة — متوافقة مع متطلبات رؤية 2030 والاقتصاد السعودي المتطور.',
+      en: 'Helping organisations evolve, improve operations and build sustainable growth capacity — aligned with Vision 2030 and the evolving Saudi economy.', // TODO: review EN copy
     },
-    description: { 
-      ar: 'مساعدة شركات العقارات والتكنولوجيا على تبني الحلول الرقمية وتبسيط العمليات المتعلقة بالإدارة والتسويق والمبيعات، لسد الفجوة بين الابتكار التكنولوجي والممارسات العقارية التقليدية.', 
-      en: 'Helping real estate and technology companies adopt digital solutions and streamline management, marketing, and sales operations — bridging the gap between technological innovation and traditional real estate practices.' 
-    },
-  },
-  {
-    icon: 'brand_awareness',
-    title: { 
-      ar: 'بناء مشروع وعلامة تجارية تتماشى مع رؤية السعودية 2030', 
-      en: 'Building a Business & Brand Aligned with Saudi Vision 2030' 
-    },
-    description: { 
-      ar: 'إنشاء هوية تجارية سعودية تعكس الابتكار والاستدامة والتقدم الاقتصادي، وتدعم القطاعات المستهدفة في الرؤية، مع إبراز مساهمة المشروع في تنمية الاقتصاد وجذب المستثمرين والشركاء.', 
-      en: 'Creating a Saudi business identity that reflects innovation, sustainability, and economic advancement, supporting the Vision\'s targeted sectors while showcasing the project\'s contribution to economic growth and attracting investors and strategic partners.' 
-    },
-    wide: true,
   },
 ];
 

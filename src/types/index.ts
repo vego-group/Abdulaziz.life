@@ -10,13 +10,6 @@ export interface NavigationItem {
   label: Translation;
 }
 
-export interface ServiceCard {
-  icon: string;
-  title: Translation;
-  description: Translation;
-  wide?: boolean;
-}
-
 export interface ProjectCard {
   id: string;
   name: Translation;
@@ -48,5 +41,11 @@ export interface SocialLink {
 export interface ImpactStat {
   value: string;
   label: Translation;
+  description: Translation;
+}
+
+export interface ExpertiseArea {
+  title: Translation;
+  subtitle: Translation;
   description: Translation;
 }
