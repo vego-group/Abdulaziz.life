@@ -421,6 +421,96 @@ export const FOOTER = {
   tagline: { ar: 'نبني ما هو قادم.', en: 'Building what comes next.' }, // TODO: review EN copy
 };
 
+// VEGO case study (/work/vego), Figma frame "VEGO" (CaseStudy 12:3138).
+// Arrows are part of the copy, except on the back links, where the component adds a
+// language-specific arrow ("→" means back in Arabic, "←" in English).
+export const VEGO_CASE_STUDY = {
+  meta: {
+    title: 'فيغو (VEGO) | عبدالعزيز السبيعي',
+    description:
+      'شركة سعودية رائدة في التنقل الكهربائي، تقود التحول نحو النقل النظيف في المملكة. تعمل فيغو على بناء البنية التحتية والمنتجات والمنظومة الكاملة للمركبات الكهربائية في السوق السعودية.',
+  },
+  back: { ar: 'العودة إلى الأعمال', en: 'Back to work' }, // TODO: review EN copy
+  eyebrow: { ar: '٠١ / أعمال مختارة', en: '01 / Selected work' }, // TODO: review EN copy
+  name: { ar: 'فيغو', en: 'VEGO' },
+  // Reading order (the design lists them right to left).
+  tags: [
+    { ar: 'مشروع', en: 'Venture' }, // TODO: review EN copy
+    { ar: 'تنقل', en: 'Mobility' }, // TODO: review EN copy
+    { ar: 'تقنية نظيفة', en: 'Clean tech' }, // TODO: review EN copy
+  ],
+  tagline: { ar: 'إعادة تصور التنقل من خلال الطاقة النظيفة.', en: 'Reimagining mobility through clean energy.' }, // TODO: review EN copy
+  projectLabel: { ar: 'المشروع', en: 'Project' }, // TODO: review EN copy
+  projectMeta: { ar: 'التنقل الكهربائي · المؤسس · 2022–حتى الآن', en: 'Electric mobility · Founder · 2022–present' }, // TODO: review EN copy
+  intro: {
+    ar: 'شركة سعودية رائدة في التنقل الكهربائي، تقود التحول نحو النقل النظيف في المملكة. تعمل فيغو على بناء البنية التحتية والمنتجات والمنظومة الكاملة للمركبات الكهربائية في السوق السعودية.',
+    en: "A leading Saudi electric-mobility company driving the Kingdom's shift to clean transport. VEGO is building the infrastructure, products and complete ecosystem for electric vehicles in the Saudi market.", // TODO: review EN copy
+  },
+  ideaLabel: { ar: 'الفكرة', en: 'The idea' }, // TODO: review EN copy
+  idea: {
+    ar: 'نسعى إلى إعادة تعريف مفهوم التنقل في المملكة، عبر حلول مبتكرة تجمع بين التقنية والكفاءة وتجربة المستخدم',
+    en: 'Redefining mobility in the Kingdom through technology, efficiency and user experience.', // TODO: review EN copy
+  },
+  infoLabel: { ar: 'معلومات المشروع', en: 'Project details' }, // TODO: review EN copy
+  info: [
+    { label: { ar: 'التصنيف', en: 'Category' }, value: { ar: 'التنقل الكهربائي', en: 'Electric mobility' } }, // TODO: review EN copy
+    { label: { ar: 'الدور', en: 'Role' }, value: { ar: 'المؤسس', en: 'Founder' } }, // TODO: review EN copy
+    { label: { ar: 'الإطار الزمني', en: 'Timeline' }, value: { ar: '2022–حتى الآن', en: '2022–present' } }, // TODO: review EN copy
+    { label: { ar: 'الموقع', en: 'Location' }, value: { ar: 'المملكة العربية السعودية', en: 'Saudi Arabia' } },
+  ],
+  backgroundLabel: { ar: 'المشروع / الخلفية', en: 'Project / Background' }, // TODO: review EN copy
+  background: {
+    ar: 'أول شركة سعودية متخصصة في التنقل الكهربائي — تبني البنية التحتية والمركبات والمنظومة الكاملة لمستقبل خالٍ من الانبعاثات.',
+    en: "Saudi Arabia's first company dedicated to electric mobility — building the infrastructure, vehicles and complete ecosystem for a zero-emission future.", // TODO: review EN copy
+  },
+  caption: { ar: 'فيغو / ٠١', en: 'VEGO / 01' }, // TODO: review EN copy
+  challengeLabel: { ar: 'التحدي', en: 'The challenge' }, // TODO: review EN copy
+  challenge: {
+    ar: 'يستلزم العمل في سوق سريعة التطور الموازنة بين الابتكار والواقعية. كان التحدي في بناء شيء جديد حقيقياً مع التعامل مع واقع التنظيم والبنية التحتية وجاهزية السوق في المملكة العربية السعودية.',
+    en: "Working in a fast-moving market means balancing innovation with realism. The challenge was to build something genuinely new while working within the realities of regulation, infrastructure and market readiness in Saudi Arabia.", // TODO: review EN copy
+  },
+  approach: [
+    {
+      number: { ar: '٠١', en: '01' },
+      title: { ar: 'البحث', en: 'Research' }, // TODO: review EN copy
+      description: {
+        ar: 'تحليل معمّق للمشهد في المملكة: البنية التحتية، والبيئة التنظيمية، والفجوات التشغيلية.',
+        en: "An in-depth analysis of the Kingdom's landscape: infrastructure, regulation and operational gaps.", // TODO: review EN copy
+      },
+    },
+    {
+      number: { ar: '٠٢', en: '02' },
+      title: { ar: 'البناء', en: 'Build' }, // TODO: review EN copy
+      description: {
+        ar: 'تطوير المنتج وبنية الشحن والمنظومة التشغيلية اللازمة للتوسع في السوق السعودية.',
+        en: 'Developing the product, the charging infrastructure and the operating system needed to scale in the Saudi market.', // TODO: review EN copy
+      },
+    },
+    {
+      number: { ar: '٠٣', en: '03' },
+      title: { ar: 'التوسع', en: 'Scale' }, // TODO: review EN copy
+      description: {
+        ar: 'توسيع الحضور في السوق مع الحفاظ على النزاهة التشغيلية والتوافق مع أهداف الاستدامة في رؤية 2030.',
+        en: 'Growing market presence while keeping operational integrity and alignment with the sustainability goals of Vision 2030.', // TODO: review EN copy
+      },
+    },
+  ],
+  resultsLabel: { ar: 'النتائج', en: 'Results' }, // TODO: review EN copy
+  resultsHeading: [
+    { ar: 'من فكرة', en: 'From an idea' }, // TODO: review EN copy
+    { ar: 'إلى أثر حقيقي.', en: 'to real impact.' }, // TODO: review EN copy
+  ],
+  results: {
+    ar: 'تُثبت النتائج الأولية اهتماماً قوياً من السوق وتوافقاً مع أهداف التنويع الاقتصادي والاستدامة في رؤية 2030. تواصل المبادرة تطورها بتركيز على التوسع المستدام والأثر القابل للقياس.',
+    en: 'Early results show strong market interest and alignment with the economic-diversification and sustainability goals of Vision 2030. The initiative keeps evolving with a focus on sustainable growth and measurable impact.', // TODO: review EN copy
+  },
+  // "Business transformation" has no case study yet, so the next-project links go to the Work section.
+  nextCaption: { ar: 'فيغو / 01', en: 'VEGO / 01' },
+  nextCta: { ar: 'استكشف المشروع التالي ←', en: 'Explore the next project →' }, // TODO: review EN copy
+  nextLabel: { ar: 'التالي ←', en: 'Next →' }, // TODO: review EN copy
+  nextTitle: { ar: 'التحول التجاري', en: 'Business Transformation' }, // TODO: review EN copy
+};
+
 // Arrows are part of the copy: "←" points forward in Arabic, "→" in English.
 export const HERO = {
   title: { ar: 'نبني ما يستحق أن يستمر.', en: 'Building what lasts.' }, // TODO: review EN copy
