@@ -31,7 +31,6 @@ export interface TimelineItem {
   title: Translation;
   subtitle?: Translation;
   date: string;
-  active?: boolean;
 }
 
 export interface ContactInfo {
@@ -50,11 +49,4 @@ export interface ImpactStat {
   value: string;
   label: Translation;
   description: Translation;
-}
-
-export interface StatCard {
-  icon: string;
-  value: string;
-  label: Translation;
-  wide?: boolean;
 }

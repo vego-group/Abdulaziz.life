@@ -24,6 +24,7 @@
   --color-accent-bright: #4a8b65; /* case-study eyebrow */
   --color-glass: rgb(10 13 12 / 0.72); /* hero location badge */
   --color-nav: rgb(10 13 12 / 0.88); /* sticky nav */
+  --color-numeral-stroke: rgb(111 155 140 / 0.4); /* outlined "20 30" numerals (accent-soft, sampled from Figma) */
 
   /* Type scale — fixed UI sizes (Figma px). Default line height 1.6 matches most Figma text. */
   --text-9: 9px;
@@ -99,6 +100,12 @@
   --font-display: var(--ff-instrument-sans), var(--ff-plex-arabic), ui-sans-serif, sans-serif;
   --font-mono: var(--ff-dm-mono), var(--ff-plex-arabic), ui-monospace, monospace;
   --font-geist: var(--ff-geist), var(--ff-plex-arabic), ui-sans-serif, sans-serif;
+}
+
+/* Outlined display type (the decorative "20 30" numerals). */
+@utility text-stroke {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-numeral-stroke);
 }
 
 @layer base {

@@ -5,7 +5,6 @@ import {
   TimelineItem, 
   ContactInfo, 
   SocialLink, 
-  StatCard,
   ImpactStat,
   Translation
 } from '@/types';
@@ -126,18 +125,14 @@ export const PROJECTS: ProjectCard[] = [
 ];
 
 export const TIMELINE: TimelineItem[] = [
+  { title: { ar: 'دبلوم في الحوكمة الإلكترونية', en: 'e-Governance Diploma' }, date: '2021' },
   {
-    title: { ar: 'دبلوم الحوكمة الإلكترونية', en: 'e-Governance Diploma' },
-    date: '2021',
-    active: true,
-  },
-  {
-    title: { ar: 'بكالوريوس إدارة الأعمال', en: 'Bachelor\'s — Business Administration' },
-    subtitle: { ar: 'جامعة مؤتة', en: 'Mu\'tah University' },
+    title: { ar: 'بكالوريوس إدارة الأعمال', en: "Bachelor's — Business Administration" },
+    subtitle: { ar: 'جامعة مؤتة', en: "Mu'tah University" },
     date: '2020',
   },
   {
-    title: { ar: 'بكالوريوس – كلية الآداب', en: 'Bachelor of Arts' },
+    title: { ar: 'بكالوريوس آداب', en: 'Bachelor of Arts' },
     subtitle: { ar: 'جامعة الملك فيصل', en: 'King Faisal University' },
     date: '2012',
   },
@@ -179,25 +174,6 @@ export const SOCIAL_LINKS: SocialLink[] = [
   },
 ];
 
-export const STATS: StatCard[] = [
-  {
-    icon: 'history',
-    value: '+15',
-    label: { ar: 'سنة خبرة مهنية', en: 'Years of Experience' },
-  },
-  {
-    icon: 'category',
-    value: '3',
-    label: { ar: 'قطاعات استراتيجية', en: 'Strategic Sectors' },
-  },
-  {
-    icon: 'rocket_launch',
-    value: 'مؤسس شركة فيجو',
-    label: { ar: 'الريادة في النقل الكهربائي', en: 'Pioneer in Electric Mobility' },
-    wide: true,
-  },
-];
-
 export const IMPACT_STATS: ImpactStat[] = [
   {
     value: '+ 15',
@@ -223,16 +199,62 @@ export const IMPACT_STATS: ImpactStat[] = [
 
 export const BIO_INFO = {
   name: { ar: 'عبدالعزيز السبيعي', en: 'Abdulaziz Al-Suabie' },
-  location: { ar: 'الرياض، السعودية', en: 'Riyadh, Saudi Arabia' },
-  specialty: { ar: 'إدارة أعمال', en: 'Business Administration' },
-  university: { ar: 'جامعة الملك فيصل', en: 'King Faisal University' },
+  location: { ar: 'الرياض، المملكة العربية السعودية', en: 'Riyadh, Saudi Arabia' },
+  specialty: { ar: 'إدارة الأعمال', en: 'Business Administration' },
   email: 'contact@abdulaziz.life',
   phone: '+966 55 507 1670',
 };
 
-export const LANGUAGES: Translation[] = [
-  { ar: 'العربية (اللغة الأم)', en: 'Arabic (Native)' },
-  { ar: 'الإنجليزية (احترافية)', en: 'English (Professional)' },
+export const ABOUT = {
+  heading: {
+    ar: 'نبني أعمالًا أقوى، نقود تحولًا مؤثرًا، ونصنع أثرًا يدوم.',
+    en: 'Stronger businesses, meaningful transformation, lasting impact.', // TODO: review EN copy
+  },
+  intro: {
+    ar: 'رائد أعمال يمتلك خبرة تتجاوز 15 عامًا في قيادة الابتكار والمشاريع التحولية عبر قطاعات الطاقة والمقاولات والتقنية المالية. يركّز على الاستفادة من التقنيات المتقدمة لبناء نماذج أعمال مستدامة وفعّالة تتوافق مع رؤية المملكة العربية السعودية 2030.',
+    en: 'An entrepreneur with more than 15 years of experience leading innovation and transformative projects across energy, contracting and financial technology. He focuses on using advanced technologies to build sustainable, effective business models aligned with Saudi Vision 2030.', // TODO: review EN copy
+  },
+  // Rendered as one line of the first two, then the third; the second is faded.
+  pillars: [
+    { ar: 'بناء الأعمال.', en: 'Building businesses.' }, // TODO: review EN copy
+    { ar: 'قيادة التحول.', en: 'Leading transformation.' }, // TODO: review EN copy
+    { ar: 'صناعة الأثر.', en: 'Creating impact.' }, // TODO: review EN copy
+  ],
+  roles: [
+    { ar: 'رائد أعمال وباني مشاريع', en: 'Entrepreneur & venture builder' }, // TODO: review EN copy
+    { ar: 'مستشار استراتيجي', en: 'Strategic advisor' }, // TODO: review EN copy
+    { ar: 'قطاع التنقل والتكنولوجيا', en: 'Mobility & technology' }, // TODO: review EN copy
+    { ar: 'الرياض، المملكة العربية السعودية', en: 'Riyadh, Saudi Arabia' },
+  ],
+  bio: [
+    {
+      ar: 'عبدالعزيز السبيعي رائد أعمال سعودي ومستشار استراتيجي يمتلك خبرة تتجاوز 15 عامًا في بناء الشركات وقيادة التحول المؤسسي وتطوير الاستراتيجيات في قطاعات الأعمال والتكنولوجيا والتنقل. يتمحور عمله حول صناعة أثر حقيقي ودائم يتوافق مع رؤية المملكة العربية السعودية 2030.',
+      en: 'Abdulaziz Al-Suabie is a Saudi entrepreneur and strategic advisor with more than 15 years of experience building companies, leading organisational transformation and developing strategy across business, technology and mobility. His work centres on creating real, lasting impact aligned with Saudi Vision 2030.', // TODO: review EN copy
+    },
+    {
+      ar: 'يجمع عمله بين العزيمة الريادية والانضباط التنفيذي — محوّلًا الأفكار إلى مؤسسات، والتحديات التجارية إلى فرص حقيقية.',
+      en: 'His work combines entrepreneurial drive with executive discipline — turning ideas into institutions and business challenges into real opportunities.', // TODO: review EN copy
+    },
+  ],
+  quote: { ar: '"نبني للمستقبل، ونصنع أثرًا حقيقيًا."', en: '"We build for the future, and create real impact."' }, // TODO: review EN copy
+  moreLink: { ar: '← المزيد عن عبدالعزيز', en: 'More about Abdulaziz →' }, // TODO: review EN copy
+  profileLabel: { ar: 'الملف الشخصي', en: 'Profile' }, // TODO: review EN copy
+  profileFields: {
+    name: { ar: 'الاسم', en: 'Name' },
+    location: { ar: 'الموقع', en: 'Location' },
+    specialty: { ar: 'التخصص', en: 'Specialty' },
+    email: { ar: 'البريد الإلكتروني', en: 'Email' },
+    phone: { ar: 'الهاتف', en: 'Phone' },
+  },
+  educationLabel: { ar: 'التعليم', en: 'Education' },
+  sectorsTitle: { ar: 'القطاعات الاستراتيجية', en: 'Strategic Sectors' },
+};
+
+// The small Latin label beside each sector comes from the design ("ENERGY"); in English the Arabic name is shown there instead.
+export const SECTORS: Translation[] = [
+  { ar: 'الطاقة', en: 'Energy' },
+  { ar: 'الصناعة', en: 'Industry' },
+  { ar: 'التقنية المالية', en: 'Fintech' },
 ];
 
 // Arrows are part of the copy: "←" points forward in Arabic, "→" in English.
