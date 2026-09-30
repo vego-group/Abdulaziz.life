@@ -202,21 +202,8 @@ export const TIMELINE: TimelineItem[] = [
 ];
 
 export const SOCIAL_LINKS: SocialLink[] = [
-  {
-    platform: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/abdalaziz-alsbaie-9ba1b61bb',
-    icon: 'fab fa-linkedin-in',
-  },
-  {
-    platform: 'Snapchat',
-    url: '#',
-    icon: 'fab fa-snapchat-ghost',
-  },
-  {
-    platform: 'WhatsApp',
-    url: 'https://wa.me/966555071670',
-    icon: 'fab fa-whatsapp',
-  },
+  { platform: 'LinkedIn', url: 'https://www.linkedin.com/in/abdalaziz-alsbaie-9ba1b61bb' },
+  { platform: 'WhatsApp', url: 'https://wa.me/966555071670' },
 ];
 
 export const IMPACT_STATS: ImpactStat[] = [
@@ -409,6 +396,29 @@ export const CONTACT = {
     ar: 'حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.',
     en: 'An error occurred while submitting. Please try again.',
   },
+};
+
+export const FOOTER = {
+  roles: { ar: 'رائد أعمال · مستشار استراتيجي · بانٍ', en: 'Entrepreneur · Strategic advisor · Builder' }, // TODO: review EN copy
+  location: { ar: 'الرياض · المملكة العربية السعودية', en: 'Riyadh · Saudi Arabia' },
+  navLabel: { ar: 'التنقل', en: 'Navigation' }, // TODO: review EN copy
+  contactLabel: { ar: 'تواصل', en: 'Contact' },
+  // Footer order differs from the header: it links Vision instead of Insights.
+  nav: [
+    { href: '/#about', label: { ar: 'نبذة', en: 'About' } },
+    { href: '/#expertise', label: { ar: 'الخبرات', en: 'Expertise' } }, // TODO: review EN copy
+    { href: '/#work', label: { ar: 'الأعمال', en: 'Work' } }, // TODO: review EN copy
+    { href: '/#vision', label: { ar: 'الرؤية', en: 'Vision' } }, // TODO: review EN copy
+    { href: '/#contact', label: { ar: 'تواصل', en: 'Contact' } },
+  ] satisfies NavigationItem[],
+  // The design lists the email link twice; the second one is WhatsApp (approved fix).
+  links: [
+    { href: SOCIAL_LINKS[0].url, label: { ar: 'لينكدإن ↗', en: 'LinkedIn ↗' }, external: true },
+    { href: `mailto:${BIO_INFO.email}`, label: { ar: 'البريد الإلكتروني ↗', en: 'Email ↗' }, external: false },
+    { href: SOCIAL_LINKS[1].url, label: { ar: 'واتساب ↗', en: 'WhatsApp ↗' }, external: true },
+  ],
+  copyright: { ar: '© 2026 عبدالعزيز. جميع الحقوق محفوظة.', en: '© 2026 Abdulaziz. All rights reserved.' }, // TODO: review EN copy
+  tagline: { ar: 'نبني ما هو قادم.', en: 'Building what comes next.' }, // TODO: review EN copy
 };
 
 // Arrows are part of the copy: "←" points forward in Arabic, "→" in English.
