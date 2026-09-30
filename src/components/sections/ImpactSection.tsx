@@ -27,7 +27,7 @@ export default function ImpactSection() {
               <span dir="ltr">{stat.value}</span>
             </p>
             <p className="mt-4 text-13 leading-4 font-medium tracking-label text-accent">{t(stat.label)}</p>
-            <p className="mt-2 text-13 leading-[1.5] text-muted lg:whitespace-nowrap">{t(stat.description)}</p>
+            <p className="mt-2 text-13 leading-[1.5] text-muted">{t(stat.description)}</p>
           </div>
         ))}
       </div>
