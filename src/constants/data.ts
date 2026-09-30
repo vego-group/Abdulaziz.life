@@ -320,6 +320,31 @@ export const SECTORS: Translation[] = [
   { ar: 'التقنية المالية', en: 'Fintech' },
 ];
 
+export const VISION = {
+  heading: {
+    ar: 'نبني اليوم برؤية تصنع فرص الغد، ونحوّل التحديات إلى نمو مستدام وأثر حقيقي.',
+    en: "Building today for tomorrow's opportunities — and lasting impact.", // TODO: review EN copy
+  },
+  pillars: [
+    {
+      title: { ar: 'الأعمال', en: 'Business' }, // TODO: review EN copy
+      description: { ar: 'بناء مؤسسات تتجاوز الاتجاهات وتصمد أمام الزمن.', en: 'Building institutions that outlast trends and stand the test of time.' }, // TODO: review EN copy
+    },
+    {
+      title: { ar: 'التكنولوجيا', en: 'Technology' }, // TODO: review EN copy
+      description: { ar: 'توظيف الابتكار بدقة وهدف.', en: 'Applying innovation with precision and purpose.' }, // TODO: review EN copy
+    },
+    {
+      title: { ar: 'التنقل', en: 'Mobility' }, // TODO: review EN copy
+      description: { ar: 'تشكيل مستقبل حركة الناس والبضائع.', en: 'Shaping the future of how people and goods move.' }, // TODO: review EN copy
+    },
+    {
+      title: { ar: 'الاستدامة', en: 'Sustainability' }, // TODO: review EN copy
+      description: { ar: 'نمو يصنع قيمة للأجيال القادمة.', en: 'Growth that creates value for generations to come.' }, // TODO: review EN copy
+    },
+  ],
+};
+
 // Arrows are part of the copy: "←" points forward in Arabic, "→" in English.
 export const HERO = {
   title: { ar: 'نبني ما يستحق أن يستمر.', en: 'Building what lasts.' }, // TODO: review EN copy
