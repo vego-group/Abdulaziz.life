@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { LanguageProvider } from '@/hooks/useLanguage';
-import { ThemeProvider } from '@/hooks/useTheme';
+import { fontVariables } from './fonts';
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ar" dir="rtl" suppressHydrationWarning>
+    <html lang="ar" dir="rtl" className={fontVariables} suppressHydrationWarning>
       <head>
         {/* Font Awesome (اختياري لو بتستخدمه) */}
         <link
@@ -38,9 +38,7 @@ export default function RootLayout({
       </head>
 
       <body>
-        <ThemeProvider>
-          <LanguageProvider>{children}</LanguageProvider>
-        </ThemeProvider>
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );

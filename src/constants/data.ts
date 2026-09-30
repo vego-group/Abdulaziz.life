@@ -9,11 +9,14 @@ import {
   Translation 
 } from '@/types';
 
+// Order follows the design: in Arabic (RTL) the first item sits next to the logo.
+// Hrefs start with "/" so they also work from sub-pages such as /work/vego.
 export const NAVIGATION_ITEMS: NavigationItem[] = [
-  { href: '#about', label: { ar: 'نبذة عني', en: 'About' } },
-  { href: '#services', label: { ar: 'الخدمات', en: 'Services' } },
-  { href: '#projects', label: { ar: 'المشاريع', en: 'Projects' } },
-  { href: '#contact', label: { ar: 'تواصل', en: 'Contact' } },
+  { href: '/#contact', label: { ar: 'تواصل', en: 'Contact' } },
+  { href: '/#insights', label: { ar: 'المقالات', en: 'Insights' } }, // TODO: review EN copy
+  { href: '/#expertise', label: { ar: 'الخبرات', en: 'Expertise' } }, // TODO: review EN copy
+  { href: '/#about', label: { ar: 'نبذة', en: 'About' } },
+  { href: '/#work', label: { ar: 'الأعمال', en: 'Work' } }, // TODO: review EN copy
 ];
 
 export const SERVICES: ServiceCard[] = [
