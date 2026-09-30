@@ -145,8 +145,10 @@ function ProjectRow({ project, index, imageFirst }: { project: WorkProject; inde
           <Image
             src={project.logo.src}
             alt=""
-            width={project.logo.width}
-            height={project.logo.height}
+            // Attributes must be whole pixels for next/image's resize check; CSS keeps the exact SVG size (Ithaba is 99.84px).
+            width={Math.round(project.logo.width)}
+            height={Math.round(project.logo.height)}
+            style={{ width: project.logo.width, height: project.logo.height }}
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
           />
         )}
