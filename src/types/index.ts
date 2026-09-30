@@ -51,3 +51,9 @@ export interface WorkProject {
   logo?: { src: string; width: number; height: number };
   caseStudy?: string;
 }
+
+export interface Insight {
+  title: Translation;
+  category: Translation;
+  year: string;
+}

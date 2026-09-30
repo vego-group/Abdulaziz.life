@@ -6,6 +6,7 @@ import {
   ImpactStat,
   ExpertiseArea,
   WorkProject,
+  Insight,
   Translation
 } from '@/types';
 
@@ -347,6 +348,28 @@ export const VISION = {
       description: { ar: 'نمو يصنع قيمة للأجيال القادمة.', en: 'Growth that creates value for generations to come.' }, // TODO: review EN copy
     },
   ],
+};
+
+// Article pages don't exist yet, so rows are not links.
+export const INSIGHTS = {
+  heading: { ar: 'وجهات نظر في الأعمال والتغيير.', en: 'Perspectives on business and change.' }, // TODO: review EN copy
+  articles: [
+    {
+      title: { ar: 'التنقل الكهربائي والفرصة السعودية', en: 'Electric mobility and the Saudi opportunity' }, // TODO: review EN copy
+      category: { ar: 'تنقل', en: 'Mobility' }, // TODO: review EN copy
+      year: '2024',
+    },
+    {
+      title: { ar: 'التحول ما وراء الرقمي: ما تطلبه رؤية 2030', en: 'Beyond digital: what Vision 2030 demands of transformation' }, // TODO: review EN copy
+      category: { ar: 'استراتيجية', en: 'Strategy' }, // TODO: review EN copy
+      year: '2024',
+    },
+    {
+      title: { ar: 'بناء مشاريع في بيئة ناشئة', en: 'Building ventures in an emerging ecosystem' }, // TODO: review EN copy
+      category: { ar: 'بناء المشاريع', en: 'Venture building' }, // TODO: review EN copy
+      year: '2023',
+    },
+  ] satisfies Insight[],
 };
 
 // Arrows are part of the copy: "←" points forward in Arabic, "→" in English.
