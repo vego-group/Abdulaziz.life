@@ -1,390 +1,116 @@
-# API Integration Guide
+# ربط نموذج التواصل بالـ API
 
-## 📡 ربط النموذج بالـ Backend API
-
-تم ربط نموذج "حجز استشارة" بالـ API الخاص بك بنجاح!
+نموذج «أخبرني ما الذي تبنيه» في قسم التواصل يرسل طلب استشارة إلى الـ backend.
 
 ---
 
-## 🔗 API Endpoint
+## الـ Endpoint
 
 ```
 POST https://api.vego.sa/api/consultation-requests
+Content-Type: application/json
+Accept: application/json
 ```
+
+العنوان الأساسي يأتي من `NEXT_PUBLIC_API_URL`، والافتراضي `https://api.vego.sa/api` (انظر `src/lib/api.ts`).
 
 ---
 
-## 📤 Request Body
+## جسم الطلب
 
 ```json
 {
-  "fullname": "John Doe",
-  "email": "john@example.com",
-  "consultation_type": "Legal",
-  "request_details": "I need help with..."
+  "fullname": "اسم المرسل",
+  "email": "name@example.com",
+  "consultation_type": "إنشاء الشركات",
+  "request_details": "الشركة: اسم الشركة\n\nنص الرسالة"
 }
 ```
 
----
-
-## 🛠️ الملفات المعدّلة
-
-### 1. **ContactSection.tsx**
-`src/components/sections/ContactSection.tsx`
-
-**التغييرات:**
-- ✅ إضافة name attributes للـ inputs
-- ✅ ربط handleSubmit بالـ API
-- ✅ إضافة validation
-- ✅ إضافة error handling
-- ✅ إضافة loading state
-- ✅ إضافة success message
-
-### 2. **API Utility (جديد)**
-`src/lib/api.ts`
-
-**يحتوي على:**
-- ✅ `submitConsultationRequest()` - دالة إرسال الطلب
-- ✅ `validateConsultationRequest()` - دالة التحقق من البيانات
-- ✅ `isValidEmail()` - دالة التحقق من البريد
-- ✅ TypeScript interfaces
-- ✅ Error handling
-
-### 3. **Environment Variables**
-`.env.example`
-
-**تم إضافة:**
-```bash
-NEXT_PUBLIC_API_URL=https://api.vego.sa/api
-```
+| الحقل | من النموذج |
+|---|---|
+| `fullname` | الاسم الكامل |
+| `email` | البريد الإلكتروني |
+| `consultation_type` | «ما الذي تودّ مناقشته؟»؛ القيمة هي اسم الموضوع بلغة الصفحة الحالية (من `CONSULTATION_TYPES`) |
+| `request_details` | الرسالة. إذا كُتب اسم الشركة يُضاف في البداية (`الشركة: …` أو `Company: …`) لأن الـ API لا يحتوي على حقل للشركة |
 
 ---
 
-## ⚙️ الإعداد
+## التحقق قبل الإرسال
 
-### 1. إنشاء ملف `.env.local`
-
-```bash
-# في المجلد الرئيسي للمشروع
-cp .env.example .env.local
-```
-
-### 2. تحديث الـ API URL (اختياري)
-
-إذا كان لديك API URL مختلف:
-
-```bash
-# .env.local
-NEXT_PUBLIC_API_URL=https://your-api-url.com/api
-```
-
-### 3. إعادة تشغيل المشروع
-
-```bash
-npm run dev
-```
+في `validateConsultationRequest` (`src/lib/api.ts`)، إضافة إلى `required` في النموذج:
+- الاسم: حرفان على الأقل
+- البريد: صيغة صحيحة
+- الموضوع: مطلوب
+- الرسالة: مطلوبة (الـ API يرفض الطلب بدونها)
 
 ---
 
-## 🎯 كيف يعمل؟
+## ردود الـ API
 
-### **1. المستخدم يملأ النموذج**
-```typescript
-{
-  fullname: "عبدالعزيز السبيعي",
-  email: "contact@abdulaziz.life",
-  consultation_type: "ريادة أعمال",
-  request_details: "أحتاج مساعدة في..."
-}
-```
-
-### **2. Validation قبل الإرسال**
-```typescript
-// التحقق من:
-- الاسم (حد أدنى 2 حروف)
-- البريد الإلكتروني (صيغة صحيحة)
-- نوع الاستشارة (مطلوب)
-```
-
-### **3. إرسال الطلب للـ API**
-```typescript
-POST https://api.vego.sa/api/consultation-requests
-Headers: {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-Body: { ...requestData }
-```
-
-### **4. معالجة الاستجابة**
-
-**نجاح ✅:**
-```typescript
-{
-  success: true,
-  data: { ... },
-  message: "تم الإرسال بنجاح"
-}
-```
-
-**فشل ❌:**
-```typescript
-{
-  success: false,
-  error: "حدث خطأ..."
-}
-```
-
----
-
-## 🎨 UI States
-
-### **1. حالة عادية**
-```
-[إرسال طلب الاستشارة] 📤
-```
-
-### **2. حالة التحميل**
-```
-[جارٍ الإرسال...] ⏳
-disabled = true
-```
-
-### **3. حالة النجاح**
-```
-[تم إرسال طلبك بنجاح!] ✅
-background: green
-```
-
-### **4. حالة الخطأ**
-```
-رسالة خطأ باللون الأحمر
-```
-
----
-
-## 🔒 Security
-
-### **1. Validation**
-- ✅ Client-side validation
-- ✅ Email format check
-- ✅ Required fields check
-
-### **2. Error Handling**
-- ✅ Try-catch blocks
-- ✅ Network error handling
-- ✅ API error handling
-
-### **3. Environment Variables**
-- ✅ API URL في .env
-- ✅ لا يتم commit الـ .env.local
-
----
-
-## 📝 استخدام الـ API Utility
-
-### **في أي مكون آخر:**
-
-```typescript
-import { submitConsultationRequest } from '@/lib/api';
-
-const handleSubmit = async () => {
-  const result = await submitConsultationRequest({
-    fullname: "John Doe",
-    email: "john@example.com",
-    consultation_type: "Business",
-    request_details: "I need help..."
-  });
-
-  if (result.success) {
-    console.log('Success!', result.data);
-  } else {
-    console.error('Error:', result.error);
-  }
-};
-```
-
----
-
-## 🧪 اختبار الـ API
-
-### **1. في المتصفح**
-1. افتح المشروع
-2. اذهب لقسم التواصل
-3. املأ النموذج
-4. اضغط إرسال
-5. افتح DevTools → Network → انظر الطلب
-
-### **2. باستخدام cURL**
-```bash
-curl -X POST https://api.vego.sa/api/consultation-requests \
-  -H "Content-Type: application/json" \
-  -d '{
-    "fullname": "Test User",
-    "email": "test@example.com",
-    "consultation_type": "Test",
-    "request_details": "Testing API"
-  }'
-```
-
-### **3. باستخدام Postman**
-```
-Method: POST
-URL: https://api.vego.sa/api/consultation-requests
-Headers:
-  Content-Type: application/json
-  Accept: application/json
-Body (JSON):
-  {
-    "fullname": "Test User",
-    "email": "test@example.com",
-    "consultation_type": "Test",
-    "request_details": "Testing API"
-  }
-```
-
----
-
-## 🐛 Troubleshooting
-
-### **المشكلة: CORS Error**
-```
-Access to fetch at 'https://api.vego.sa/...' has been blocked by CORS policy
-```
-
-**الحل:**
-تأكد من أن الـ backend يسمح بـ CORS من domain الخاص بك:
-```javascript
-// في الـ backend
-app.use(cors({
-  origin: ['http://localhost:3000', 'https://yourdomain.com']
-}));
-```
-
-### **المشكلة: Network Error**
-```
-Failed to fetch
-```
-
-**الحل:**
-1. تحقق من الـ API URL
-2. تحقق من اتصال الإنترنت
-3. تحقق من أن الـ backend يعمل
-
-### **المشكلة: 400 Bad Request**
-```
-Invalid request data
-```
-
-**الحل:**
-1. تحقق من أن field names صحيحة
-2. تحقق من أن البيانات valid
-
----
-
-## 📊 Response Examples
-
-### **Success Response**
+**نجاح — 201**
 ```json
 {
-  "success": true,
+  "status": "success",
   "message": "Consultation request submitted successfully",
-  "data": {
-    "id": 123,
-    "fullname": "John Doe",
-    "email": "john@example.com",
-    "consultation_type": "Business",
-    "request_details": "...",
-    "created_at": "2024-12-20T10:30:00Z"
-  }
+  "data": { "fullname": "…", "email": "…", "consultation_type": "…", "request_details": "…", "created_at": "…", "updated_at": "…" }
 }
 ```
 
-### **Error Response**
+**بيانات غير صحيحة — 422**
 ```json
 {
-  "success": false,
-  "error": "Validation failed",
-  "details": {
-    "email": "Invalid email format"
-  }
+  "message": "Please provide a valid email address. (and 1 more error)",
+  "errors": { "email": ["Please provide a valid email address."], "request_details": ["The request details field is required."] }
 }
 ```
+
+**طلب من localhost — 419**
+```json
+{ "message": "CSRF token mismatch." }
+```
+الـ backend (Laravel Sanctum) يعامل `localhost` كواجهة أمامية تتطلب CSRF، بينما الطلبات من `abdulaziz.life` لا تتأثر. لذلك لا يعمل الإرسال الحقيقي من بيئة التطوير المحلية إلا إذا غيّر فريق الـ backend هذا الإعداد.
+
+**CORS:** الـ API يرد بـ `Access-Control-Allow-Origin: *`.
 
 ---
 
-## 🔄 إضافة Features جديدة
+## سلوك الواجهة
 
-### **1. إضافة File Upload**
-```typescript
-// في api.ts
-export async function submitWithFile(
-  data: ConsultationRequest,
-  file: File
-) {
-  const formData = new FormData();
-  formData.append('file', file);
-  formData.append('data', JSON.stringify(data));
-  
-  // ... send formData
-}
-```
+`src/components/sections/ContactSection.tsx`:
+- أثناء الإرسال: يتعطل الزر ويظهر «جارٍ الإرسال...».
+- النجاح: تظهر «تم إرسال طلبك بنجاح!» تحت الزر ويُفرَّغ النموذج.
+- الفشل: تظهر رسالة خطأ واضحة وتبقى البيانات المدخلة. تفاصيل الخطأ التقنية تُسجَّل في console فقط.
 
-### **2. إضافة Rate Limiting**
-```typescript
-// في api.ts
-let lastRequest = 0;
-const MIN_INTERVAL = 3000; // 3 seconds
+---
 
-export async function submitConsultationRequest(data) {
-  const now = Date.now();
-  if (now - lastRequest < MIN_INTERVAL) {
-    throw new Error('Please wait before submitting again');
-  }
-  lastRequest = now;
-  // ... proceed
-}
-```
+## الاختبار
 
-### **3. إضافة Analytics**
-```typescript
-// في ContactSection.tsx
-const handleSubmit = async (e) => {
-  // ... existing code
-  
-  if (result.success) {
-    // Track success
-    gtag('event', 'consultation_request_success', {
-      consultation_type: requestData.consultation_type
-    });
-  }
+لا ترسل طلبات اختبار إلى الـ API الحقيقي: كل طلب ناجح يُنشئ سجلاً فعلياً عند فريق VEGO. اختبر بخادم وهمي محلي بدلاً من ذلك:
+
+```js
+// mock-api.mjs — شغّله بـ: node mock-api.mjs
+import { createServer } from 'node:http';
+
+const cors = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'content-type,accept',
+  'Access-Control-Allow-Methods': 'POST',
 };
+
+createServer((req, res) => {
+  if (req.method === 'OPTIONS') {
+    res.writeHead(204, cors);
+    return res.end();
+  }
+  let body = '';
+  req.on('data', (chunk) => (body += chunk));
+  req.on('end', () => {
+    console.log(JSON.parse(body || '{}')); // الحقول كما أرسلها النموذج
+    res.writeHead(201, { ...cors, 'Content-Type': 'application/json' }); // غيّر إلى 500 لاختبار حالة الخطأ
+    res.end(JSON.stringify({ status: 'success', message: 'Mock: request received' }));
+  });
+}).listen(4000);
 ```
 
----
-
-## ✅ Checklist
-
-- [x] ربط النموذج بالـ API
-- [x] إضافة validation
-- [x] إضافة error handling
-- [x] إضافة loading states
-- [x] إضافة success messages
-- [x] إنشاء API utility
-- [x] إضافة TypeScript types
-- [x] إضافة environment variables
-- [x] توثيق الـ API
-
----
-
-## 📞 الدعم
-
-إذا واجهت مشاكل:
-1. راجع console للأخطاء
-2. راجع Network tab في DevTools
-3. تحقق من الـ API endpoint
-4. تحقق من الـ backend logs
-
----
-
-**تم التكامل بنجاح! ✅**
+ثم ضع `NEXT_PUBLIC_API_URL=http://localhost:4000/api` في `.env.local` وأعد تشغيل `npm run dev`. لا تضف `mock-api.mjs` إلى المستودع.

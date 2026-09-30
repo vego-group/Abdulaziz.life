@@ -1,166 +1,64 @@
+# عبدالعزيز السبيعي — abdulaziz.life
 
-# عبدالعزيز السبيعي - Portfolio Website
+الموقع الشخصي لعبدالعزيز السبيعي، رائد أعمال ومستشار استراتيجي. مبني بـ Next.js وفق تصميم Figma «عبدالعزيز بورتفوليو»: عربي أولاً (RTL) مع نسخة إنجليزية، وبتصميم داكن.
 
-موقع شخصي احترافي مبني بـ Next.js و TypeScript مع دعم كامل للغة العربية والإنجليزية.
+## الصفحات
 
-## 🚀 التقنيات المستخدمة
+| المسار | المحتوى |
+|---|---|
+| `/` | الصفحة الرئيسية: البطل، الأرقام، نبذة، الخبرات، الأعمال، الرؤية، المقالات، التواصل |
+| `/work/vego` | دراسة حالة فيغو (VEGO) |
+| `/robots.txt` ، `/sitemap.xml` | من `src/app/robots.ts` و `src/app/sitemap.ts` |
 
-- **Next.js 15** - React Framework
-- **TypeScript** - Type Safety
-- **Tailwind CSS** - Styling (مع CSS مخصص للتصميم الكامل)
-- **Context API** - إدارة الحالة (اللغة والثيم)
-- **Font Awesome** - الأيقونات
-- **Google Fonts** - الخطوط (Cairo, Tajawal, Inter)
-- **Material Symbols** - أيقونات Google
+## التقنيات
 
-## 📁 هيكل المشروع
+- Next.js 16 (App Router، Turbopack) و React 19 و TypeScript
+- Tailwind CSS v4، والـ design tokens (الألوان، الخطوط، المسافات) في `src/styles/globals.css`
+- الخطوط عبر `next/font`: IBM Plex Sans Arabic و Instrument Sans و DM Mono و Geist
 
-```
-abdulaziz-portfolio/
-├── src/
-│   ├── app/                    # Next.js App Directory
-│   │   ├── layout.tsx         # Root Layout
-│   │   └── page.tsx           # الصفحة الرئيسية
-│   ├── components/
-│   │   ├── layout/            # مكونات التخطيط
-│   │   │   ├── Header.tsx
-│   │   │   └── Footer.tsx
-│   │   ├── sections/          # أقسام الصفحة
-│   │   │   ├── HeroSection.tsx
-│   │   │   ├── AboutSection.tsx
-│   │   │   ├── ServicesSection.tsx
-│   │   │   ├── ProjectsSection.tsx
-│   │   │   └── ContactSection.tsx
-│   │   └── ui/                # مكونات UI قابلة لإعادة الاستخدام
-│   │       └── MaterialIcon.tsx
-│   ├── hooks/                 # Custom Hooks
-│   │   ├── useLanguage.tsx   # إدارة اللغة
-│   │   └── useTheme.tsx      # إدارة الثيم
-│   ├── constants/             # البيانات الثابتة
-│   │   └── data.ts
-│   ├── types/                 # TypeScript Types
-│   │   └── index.ts
-│   └── styles/                # ملفات الأنماط
-│       └── globals.css
-├── public/
-│   └── images/                # الصور
-└── package.json
-```
+## التشغيل
 
-## 🎨 المميزات
-
-### ✅ دعم متعدد اللغات
-- تبديل سلس بين العربية والإنجليزية
-- حفظ تفضيل اللغة في localStorage
-- تبديل اتجاه الصفحة (RTL/LTR) تلقائياً
-
-### ✅ الوضع الداكن/الفاتح
-- تبديل بين الثيمات
-- حفظ التفضيل في localStorage
-- انتقالات سلسة
-
-### ✅ تصميم متجاوب
-- يعمل على جميع الأجهزة
-- قائمة موبايل منفصلة
-- تجربة مستخدم محسنة
-
-### ✅ أقسام متكاملة
-1. **Hero** - قسم البطل مع صورة شخصية
-2. **About** - نبذة تعريفية، Timeline التعليم، الإحصائيات
-3. **Services** - الخدمات الاستشارية
-4. **Projects** - المشاريع (مشروع مميز + مشاريع ثانوية)
-5. **Contact** - نموذج التواصل
-
-### ✅ أفضل الممارسات
-- **TypeScript** للتحقق من الأنواع
-- **Component-Based** architecture
-- **Custom Hooks** لإعادة استخدام المنطق
-- **Separation of Concerns** - فصل البيانات عن العرض
-- **Clean Code** - كود نظيف وقابل للصيانة
-
-## 🚀 التشغيل
-
-### التثبيت
+يتطلب Node.js 20.9 أو أحدث.
 
 ```bash
 npm install
+npm run dev          # http://localhost:3000
+npm run lint
+npm run build && npm start
 ```
 
-### التشغيل في وضع التطوير
+التفاصيل وحل المشاكل في [INSTALLATION.md](INSTALLATION.md).
 
-```bash
-npm run dev
+## هيكل المشروع
+
+```
+src/
+├── app/               # الصفحات، الخطوط، robots.ts، sitemap.ts
+├── components/
+│   ├── layout/        # Header، Footer
+│   ├── sections/      # أقسام الصفحة الرئيسية (و about/)
+│   ├── case-study/    # VegoCaseStudy
+│   └── ui/            # SectionIntro، Tag، OutlineNumerals
+├── constants/data.ts  # كل النصوص (عربي/إنجليزي) والبيانات
+├── hooks/useLanguage.tsx
+├── lib/api.ts         # إرسال طلبات الاستشارة
+├── styles/globals.css # Tailwind و design tokens
+└── types/index.ts
+public/                # الصور والشعارات والأيقونات ونمط الشبكة
 ```
 
-افتح [http://localhost:3000](http://localhost:3000) في المتصفح.
+## تعديل المحتوى
 
-### البناء للإنتاج
+- كل النصوص في `src/constants/data.ts` بصيغة `{ ar, en }`. النصوص الإنجليزية التي تنتظر المراجعة معلّمة بـ `// TODO: review EN copy`.
+- الألوان والأحجام والمسافات tokens في `src/styles/globals.css`؛ استخدمها بدل القيم الثابتة.
+- شرح كل مكون وبياناته في [COMPONENTS.md](COMPONENTS.md).
 
-```bash
-npm run build
-npm start
-```
+## نموذج التواصل
 
-## 📝 إضافة الصور
+يرسل النموذج إلى `https://api.vego.sa/api/consultation-requests` (يمكن تغيير العنوان بـ `NEXT_PUBLIC_API_URL`). الحقول والردود وطريقة الاختبار في [API-INTEGRATION.md](API-INTEGRATION.md). لا ترسل طلبات اختبار إلى الـ API الحقيقي، فكل طلب ناجح يُنشئ سجلاً فعلياً.
 
-ضع الصور التالية في مجلد `public/images/`:
+## التواصل
 
-1. `abdulaziz.png` - الصورة الشخصية
-2. `vego-group.webp` - صورة مشروع فيجو
-3. `digital-real-estate.jpg` - صورة مشروع العقارات
-4. `energy-efficiency-industry.jpg` - صورة مشروع الطاقة
+contact@abdulaziz.life · +966 55 507 1670
 
-## 🔧 التخصيص
-
-### تعديل البيانات
-جميع البيانات موجودة في ملف واحد: `src/constants/data.ts`
-
-### تعديل الألوان
-الألوان محددة في CSS Variables في `src/styles/globals.css`:
-
-```css
-:root {
-  --gold: #C6A15B;
-  --gold-light: #F5E6CA;
-  --surface: #fef9f1;
-  /* ... */
-}
-```
-
-### إضافة قسم جديد
-1. أنشئ مكون جديد في `src/components/sections/`
-2. أضفه إلى `src/app/page.tsx`
-3. أضف البيانات في `src/constants/data.ts`
-
-## 📦 النشر
-
-يمكن نشر المشروع على:
-- **Vercel** (موصى به لـ Next.js)
-- **Netlify**
-- **AWS Amplify**
-- أي خدمة استضافة تدعم Next.js
-
-### Vercel
-```bash
-npm install -g vercel
-vercel
-```
-
-## 🤝 المساهمة
-
-هذا مشروع شخصي، لكن اقتراحاتك مرحب بها!
-
-## 📄 الترخيص
-
-جميع الحقوق محفوظة © 2024 عبدالعزيز السبيعي
-
-## 📧 التواصل
-
-- **البريد الإلكتروني:** contact@abdulaziz.life
-- **الهاتف:** +966 55 507 1670
-- **الموقع:** [vego.sa](https://www.vego.sa/)
-
----
-
-تم البناء بـ ❤️ باستخدام Next.js و TypeScript
-
+الترخيص: راجع ملف [LICENSE](LICENSE).
