@@ -14,6 +14,14 @@ const controlClass =
 export default function Header() {
   const { language, toggleLanguage, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 0);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   useEffect(() => {
     if (!isMenuOpen) return;
@@ -28,7 +36,12 @@ export default function Header() {
   const bookLabel = language === 'ar' ? 'احجز استشارة' : 'Book a Consultation';
 
   return (
-    <header className="sticky top-0 z-50 border-b border-transparent bg-nav backdrop-blur-md">
+    // Transparent at the top of the page (as in the design), solid once content scrolls underneath.
+    <header
+      className={`sticky top-0 z-50 transition-colors duration-300 ${
+        isScrolled || isMenuOpen ? 'bg-nav backdrop-blur-md' : 'bg-transparent'
+      }`}
+    >
       <div className="mx-auto flex h-nav max-w-page items-center justify-between px-gutter">
         {/* Latin text gets Instrument Sans italic; Arabic falls back to Plex upright, as in the design. */}
         <Link
@@ -95,13 +108,13 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Stacked menu below lg. Listed in reading order (the reverse of the desktop row). */}
+      {/* Stacked menu below lg. */}
       <nav
         id="mobile-menu"
         aria-label={language === 'ar' ? 'التنقل الرئيسي' : 'Main navigation'}
         className={`${isMenuOpen ? 'flex' : 'hidden'} absolute inset-x-0 top-full flex-col border-b border-line bg-ink px-gutter pb-6 lg:hidden`}
       >
-        {[...NAVIGATION_ITEMS].reverse().map((item) => (
+        {NAVIGATION_ITEMS.map((item) => (
           <Link
             key={item.href}
             href={item.href}

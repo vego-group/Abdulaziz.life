@@ -37,7 +37,8 @@ export default function RootLayout({
         />
       </head>
 
-      <body>
+      {/* Browser extensions (e.g. ColorZilla) add attributes to <body> before hydration. */}
+      <body suppressHydrationWarning>
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
