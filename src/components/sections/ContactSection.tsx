@@ -89,7 +89,7 @@ export default function ContactSection() {
       {/* Heading block */}
       <div className="mx-auto max-w-page px-gutter pt-section-lg lg:ps-gutter-lg lg:pe-gutter-md">
         {/* Figma insets the heading 20px more than the rest of the block. */}
-        <h2 className="text-100 leading-[1.0706] font-bold tracking-[-0.05em] text-balance text-fg lg:ms-5 lg:text-wrap">
+        <h2 data-reveal className="text-100 leading-[1.0706] font-bold tracking-[-0.05em] text-balance text-fg lg:ms-5 lg:text-wrap">
           {CONTACT.heading.map((line) => (
             <span key={line.en} className="block">
               {t(line)}
@@ -97,13 +97,16 @@ export default function ContactSection() {
           ))}
         </h2>
         <div className="mt-12 flex flex-col items-start gap-8 border-b border-line pb-12 lg:mt-[166.5px] lg:min-h-[186.43px] lg:flex-row lg:justify-between lg:pb-0">
-          <p className="max-w-[588px] text-16 leading-[28.48px] text-muted">{t(CONTACT.intro)}</p>
-          <a
-            href="#contact-form"
-            className="shrink-0 border border-line py-[18px] ps-8 pe-6 text-14 leading-[22.4px] font-semibold tracking-label text-fg uppercase transition-colors hover:border-muted lg:mt-[18.63px]"
-          >
-            {t(CONTACT.startCta)}
-          </a>
+          <p data-reveal className="max-w-[588px] text-16 leading-[28.48px] text-muted">{t(CONTACT.intro)}</p>
+          {/* The wrapper carries the reveal so the link keeps its own colour transition. */}
+          <div data-reveal className="flex shrink-0 lg:mt-[18.63px]">
+            <a
+              href="#contact-form"
+              className="border border-line py-[18px] ps-8 pe-6 text-14 leading-[22.4px] font-semibold tracking-label text-fg uppercase transition-colors hover:border-muted hover:bg-surface"
+            >
+              {t(CONTACT.startCta)}
+            </a>
+          </div>
         </div>
       </div>
 
@@ -111,8 +114,10 @@ export default function ContactSection() {
       <div className="border-b border-line">
         <div className="mx-auto grid max-w-page px-gutter lg:min-h-[541px] lg:grid-cols-[minmax(0,580.5px)_minmax(0,580.5px)] lg:justify-end lg:gap-x-8 lg:px-gutter-lg">
           <div className="py-12 lg:py-18">
-            <p className="text-13 leading-4 font-medium tracking-[1px] text-muted uppercase">{t(CONTACT.contactLabel)}</p>
-            <dl className="mt-10">
+            <p data-reveal className="text-13 leading-4 font-medium tracking-[1px] text-muted uppercase">
+              {t(CONTACT.contactLabel)}
+            </p>
+            <dl data-reveal className="mt-10">
               {details.map((row) => (
                 <div key={row.label.en} className="border-b border-line py-7 last:border-b-0">
                   <dt className="font-mono text-9 leading-[14.4px] tracking-[1.8px] text-accent uppercase">{t(row.label)}</dt>
@@ -123,10 +128,10 @@ export default function ContactSection() {
           </div>
 
           <div className="flex flex-col justify-center border-t border-line py-12 lg:border-s lg:border-t-0 lg:py-18 lg:pe-20">
-            <p className="text-13 leading-4 font-medium tracking-[1px] text-muted uppercase lg:ps-20">
+            <p data-reveal className="text-13 leading-4 font-medium tracking-[1px] text-muted uppercase lg:ps-20">
               {t(CONTACT.availableLabel)}
             </p>
-            <ul className="mt-10">
+            <ul data-reveal className="mt-10">
               {CONTACT.available.map((item) => (
                 <li
                   key={item.en}
@@ -143,9 +148,9 @@ export default function ContactSection() {
       {/* Form row */}
       <div className="mx-auto flex max-w-page flex-col gap-12 px-gutter pt-section lg:flex-row lg:items-start lg:gap-0 lg:ps-gutter-lg lg:pe-gutter-md">
         <div className="relative lg:flex-1">
-          <h3 className="text-42 leading-[43.7px] font-bold tracking-[-1px] text-fg lg:py-6">{t(CONTACT.formHeading)}</h3>
-          <p className="mt-6 max-w-[434px] text-20 leading-[28.9px] font-medium text-muted lg:mt-8">{t(CONTACT.formIntro)}</p>
-          <p className="mt-12 lg:absolute lg:inset-x-0 lg:top-[226.7px] lg:mt-0">
+          <h3 data-reveal className="text-42 leading-[43.7px] font-bold tracking-[-1px] text-fg lg:py-6">{t(CONTACT.formHeading)}</h3>
+          <p data-reveal className="mt-6 max-w-[434px] text-20 leading-[28.9px] font-medium text-muted lg:mt-8">{t(CONTACT.formIntro)}</p>
+          <p data-reveal className="mt-12 lg:absolute lg:inset-x-0 lg:top-[226.7px] lg:mt-0">
             <span className="block font-display text-90 leading-[0.958] font-bold tracking-[-4px] text-line lg:h-[111px]">
               {t(CONTACT.tagline[0])}
             </span>
@@ -157,6 +162,7 @@ export default function ContactSection() {
 
         <form
           id="contact-form"
+          data-reveal
           onSubmit={handleSubmit}
           className="flex flex-col pb-section lg:w-[684.5px] lg:shrink-0 lg:py-section lg:ps-20 lg:pe-18"
         >
@@ -245,7 +251,7 @@ export default function ContactSection() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="mt-12 h-14 w-full rounded-submit bg-accent px-10 text-13 font-semibold tracking-label text-on-accent transition hover:brightness-110 disabled:cursor-wait disabled:opacity-60"
+            className="mt-12 h-14 w-full rounded-submit bg-accent px-10 text-13 font-semibold tracking-label text-on-accent transition hover:brightness-110 active:scale-[0.99] disabled:cursor-wait disabled:opacity-60"
           >
             {isSubmitting ? t(CONTACT.sending) : t(CONTACT.submit)}
           </button>

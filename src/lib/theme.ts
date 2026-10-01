@@ -17,10 +17,19 @@ export function getActiveTheme(): Theme {
 
 export function toggleTheme() {
   const next: Theme = getActiveTheme() === 'light' ? 'dark' : 'light';
-  document.documentElement.dataset.theme = next;
+  const apply = () => {
+    document.documentElement.dataset.theme = next;
+  };
   try {
     localStorage.setItem(THEME_STORAGE_KEY, next);
   } catch {
     // Storage blocked: the choice lasts for this page view only.
+  }
+
+  // Cross-fade between themes where View Transitions exist (styled in globals.css); instant otherwise.
+  if (document.startViewTransition && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.startViewTransition(apply);
+  } else {
+    apply();
   }
 }

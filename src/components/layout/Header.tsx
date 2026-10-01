@@ -56,9 +56,10 @@ export default function Header() {
           <ul className="flex items-center gap-9">
             {NAVIGATION_ITEMS.map((item) => (
               <li key={item.href}>
+                {/* Underline grows from the start edge on hover, in the text colour. */}
                 <Link
                   href={item.href}
-                  className="text-13 font-medium tracking-label text-muted transition-colors hover:text-fg"
+                  className="relative text-13 font-medium tracking-label text-muted transition-colors after:absolute after:start-0 after:-bottom-1 after:h-px after:w-0 after:bg-current after:transition-[width] hover:text-fg hover:after:w-full"
                 >
                   {t(item.label)}
                 </Link>
@@ -70,7 +71,7 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <Link
             href="/#contact"
-            className="hidden rounded-control bg-accent px-5 py-2.5 text-12 font-semibold tracking-label text-on-accent transition hover:brightness-110 sm:block"
+            className="hidden rounded-control bg-accent px-5 py-2.5 text-12 font-semibold tracking-label text-on-accent transition hover:brightness-110 active:scale-[0.98] sm:block"
           >
             {bookLabel}
           </Link>
@@ -118,7 +119,7 @@ export default function Header() {
       <nav
         id="mobile-menu"
         aria-label={language === 'ar' ? 'التنقل الرئيسي' : 'Main navigation'}
-        className={`${isMenuOpen ? 'flex' : 'hidden'} absolute inset-x-0 top-full flex-col border-b border-line bg-ink px-gutter pb-6 lg:hidden`}
+        className={`${isMenuOpen ? 'flex' : 'hidden'} absolute inset-x-0 top-full flex-col border-b border-line bg-ink px-gutter pb-6 motion-safe:animate-drop lg:hidden`}
       >
         {NAVIGATION_ITEMS.map((item) => (
           <Link

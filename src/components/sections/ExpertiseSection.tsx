@@ -17,14 +17,15 @@ export default function ExpertiseSection() {
           {EXPERTISE_AREAS.map((area, index) => (
             <li
               key={area.title.en}
+              data-reveal
               className="group relative flex flex-col gap-4 border-b border-line py-8 lg:flex-row lg:items-center lg:gap-10 lg:py-11 lg:ps-5"
             >
-              {/* Accent rule on the start edge, revealed on hover (0-width in the Figma frame). */}
+              {/* Hover: accent rule on the start edge (0-width in the Figma frame), accent number, full-strength text. */}
               <span
                 aria-hidden="true"
-                className="absolute inset-y-0 start-0 w-0 bg-accent transition-[width] duration-300 group-hover:w-0.5"
+                className="absolute inset-y-0 start-0 w-0 bg-accent transition-[width] group-hover:w-0.5"
               />
-              <span className="font-mono text-11 leading-[17.6px] tracking-[1.54px] text-muted lg:pt-1.5">
+              <span className="font-mono text-11 leading-[17.6px] tracking-[1.54px] text-muted transition-colors group-hover:text-accent-soft lg:pt-1.5">
                 {String(index + 1).padStart(2, '0')}
               </span>
               <div className="lg:w-[171px] lg:shrink-0">
@@ -36,7 +37,7 @@ export default function ExpertiseSection() {
                 </p>
               </div>
               {/* Figma keeps the description top-aligned in a 93.4px box, which sets the row height (182px). */}
-              <p className="max-w-[678px] text-18 leading-[24.5px] font-medium text-muted opacity-70 lg:h-[93.4px]">
+              <p className="max-w-[678px] text-18 leading-[24.5px] font-medium text-muted opacity-70 transition-opacity group-hover:opacity-100 lg:h-[93.4px]">
                 {t(area.description)}
               </p>
             </li>

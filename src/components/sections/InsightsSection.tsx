@@ -9,13 +9,14 @@ export default function InsightsSection() {
   return (
     <section id="insights" className="border-t border-line bg-surface">
       <div className="mx-auto max-w-page px-gutter py-section-xl">
-        <h2 className="text-75 leading-[1.2047] font-bold tracking-[-1.5px] text-fg">{t(INSIGHTS.heading)}</h2>
+        <h2 data-reveal className="text-75 leading-[1.2047] font-bold tracking-[-1.5px] text-fg">{t(INSIGHTS.heading)}</h2>
 
         {/* The rule sits right under the heading; rows start 72px below it. */}
         <ol className="border-t border-line pt-10 lg:pt-18">
           {INSIGHTS.articles.map((article, index) => (
             <li
               key={article.title.en}
+              data-reveal
               className="flex flex-col gap-3 border-b border-line py-6 lg:h-[104px] lg:flex-row lg:items-center lg:justify-between lg:py-9"
             >
               <div className="flex items-center gap-6">

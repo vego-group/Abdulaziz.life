@@ -35,8 +35,10 @@ export default function AboutProfileEducation() {
     <div className="border-b border-line">
       <div className="mx-auto grid max-w-page lg:grid-cols-2">
         <div className="border-b border-line px-gutter py-16 lg:border-e lg:border-b-0 lg:ps-gutter-lg lg:pe-18 lg:pt-section lg:pb-[116px]">
-          <p className="text-13 leading-4 font-medium tracking-[1px] text-muted uppercase">{t(ABOUT.profileLabel)}</p>
-          <dl className="mt-8 border-t border-line">
+          <p data-reveal className="text-13 leading-4 font-medium tracking-[1px] text-muted uppercase">
+            {t(ABOUT.profileLabel)}
+          </p>
+          <dl data-reveal className="mt-8 border-t border-line">
             {profile.map((row) => (
               <div key={row.label.en} className="flex items-center justify-between gap-4 border-b border-line py-[18px]">
                 <dt className="font-mono text-11 leading-[14.4px] tracking-[1px] text-accent uppercase">{t(row.label)}</dt>
@@ -47,7 +49,7 @@ export default function AboutProfileEducation() {
         </div>
 
         <div className="px-gutter py-16 lg:ps-20 lg:pe-18 lg:pt-section lg:pb-[116px]">
-          <div className="lg:mx-auto lg:max-w-[499.5px]">
+          <div data-reveal className="lg:mx-auto lg:max-w-[499.5px]">
             <p className="font-mono text-10 leading-4 tracking-[2.2px] text-muted uppercase">{t(ABOUT.educationLabel)}</p>
             <ol className="mt-8">
               {TIMELINE.map((item) => (

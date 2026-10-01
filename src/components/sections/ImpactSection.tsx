@@ -2,6 +2,7 @@
 
 import { useLanguage } from '@/hooks/useLanguage';
 import { IMPACT_STATS } from '@/constants/data';
+import CountUp from '@/components/motion/CountUp';
 
 // lg: four columns divided by vertical rules; the first column has no end padding, as in Figma.
 // Below lg: 2×2 with a vertical rule between columns and a horizontal rule between rows.
@@ -22,12 +23,17 @@ export default function ImpactSection() {
       <div className="mx-auto grid max-w-page grid-cols-2 px-gutter lg:grid-cols-4">
         {IMPACT_STATS.map((stat, index) => (
           <div key={stat.value} className={cellClass(index)}>
-            <p className="font-display text-75 leading-[0.9] font-semibold tracking-[-0.04em] whitespace-nowrap text-fg">
-              {/* Keeps "+ 15" in LTR order inside the RTL layout. */}
-              <span dir="ltr">{stat.value}</span>
-            </p>
-            <p className="mt-4 text-13 leading-4 font-medium tracking-label text-accent">{t(stat.label)}</p>
-            <p className="mt-2 text-13 leading-[1.5] text-muted">{t(stat.description)}</p>
+            {/* The cell (with its rule) stays put; only the content rises in. */}
+            <div data-reveal>
+              <p className="font-display text-75 leading-[0.9] font-semibold tracking-[-0.04em] whitespace-nowrap text-fg">
+                {/* Keeps "+ 15" in LTR order inside the RTL layout. */}
+                <span dir="ltr">
+                  <CountUp value={stat.value} delay={150 + index * 80} />
+                </span>
+              </p>
+              <p className="mt-4 text-13 leading-4 font-medium tracking-label text-accent">{t(stat.label)}</p>
+              <p className="mt-2 text-13 leading-[1.5] text-muted">{t(stat.description)}</p>
+            </div>
           </div>
         ))}
       </div>

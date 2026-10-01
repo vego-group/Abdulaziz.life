@@ -17,6 +17,9 @@ const SCRIMS: Record<string, string> = {
   'ev-share': 'from-scrim/90 to-scrim/32',
 };
 
+// Photos ease in slightly while their project is hovered.
+const ZOOM = 'transition-transform duration-700 motion-safe:group-hover:scale-[1.03]';
+
 // Figma shows the Mamsa photo at its natural size (1024×572) offset 240px from the left, not cover-scaled.
 const IMAGE_CLASSES: Record<string, string> = {
   mamsa:
@@ -51,11 +54,18 @@ function ArrowLink({ href, label, large = false }: { href: string; label: string
     <Link
       href={href}
       aria-label={label}
-      className={`flex shrink-0 items-center justify-center border font-display text-on-media transition-colors hover:border-on-media ${
+      className={`group/arrow flex shrink-0 items-center justify-center border font-display text-on-media transition-colors hover:border-on-media hover:bg-on-media/10 ${
         large ? 'size-12 border-on-media/25 text-18' : 'size-10 border-on-media/30 text-16'
       }`}
     >
-      {language === 'ar' ? '←' : '→'}
+      {/* The arrow nudges the way it points. */}
+      <span
+        className={`transition-transform ${
+          language === 'ar' ? 'group-hover/arrow:-translate-x-0.75' : 'group-hover/arrow:translate-x-0.75'
+        }`}
+      >
+        {language === 'ar' ? '←' : '→'}
+      </span>
     </Link>
   );
 }
@@ -63,12 +73,15 @@ function ArrowLink({ href, label, large = false }: { href: string; label: string
 function ViewProjectLink({ href }: { href: string }) {
   const { t } = useLanguage();
   return (
-    <Link
-      href={href}
-      className="text-12 font-semibold tracking-label text-accent uppercase transition-colors hover:text-accent-soft"
-    >
-      {t(WORK.viewProject)}
-    </Link>
+    // The wrapper carries the reveal so the link keeps its own colour transition.
+    <div data-reveal className="flex flex-col">
+      <Link
+        href={href}
+        className="text-12 font-semibold tracking-label text-accent uppercase transition-colors hover:text-accent-soft"
+      >
+        {t(WORK.viewProject)}
+      </Link>
+    </div>
   );
 }
 
@@ -76,9 +89,9 @@ function FeaturedProject({ project }: { project: WorkProject }) {
   const { t } = useLanguage();
 
   return (
-    <article className="border-t border-line">
+    <article className="group border-t border-line">
       <div className="relative h-[480px] overflow-hidden bg-media sm:h-[560px] lg:h-[604px]">
-        <Image src={project.image} alt="" fill sizes="100vw" className="object-cover" />
+        <Image src={project.image} alt="" fill sizes="100vw" className={`object-cover ${ZOOM}`} />
         <div className="absolute inset-0 bg-linear-to-t from-scrim via-scrim/32 to-scrim/60" />
 
         {/* In Figma "01" sits under the tags; it is moved to the opposite corner so both stay visible. */}
@@ -94,7 +107,7 @@ function FeaturedProject({ project }: { project: WorkProject }) {
         </ul>
 
         <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-6 px-gutter-md py-12">
-          <div>
+          <div data-reveal>
             <p className="text-14 leading-4 font-medium tracking-label text-white uppercase">{t(project.category)}</p>
             <h3 className="pt-3 font-display text-68 leading-[0.95] font-bold tracking-[-0.04em] text-on-media">
               {t(project.title)}
@@ -107,7 +120,7 @@ function FeaturedProject({ project }: { project: WorkProject }) {
 
       <div className="flex flex-col gap-6 border-b border-line bg-card px-gutter-md py-9 lg:flex-row lg:items-center lg:justify-between">
         {/* Figma reserves 77px (three lines) for the description, top-aligned. */}
-        <p className="max-w-[592px] text-20 leading-[25.5px] font-semibold text-muted lg:min-h-[77px]">
+        <p data-reveal className="max-w-[592px] text-20 leading-[25.5px] font-semibold text-muted lg:min-h-[77px]">
           {t(project.description)}
         </p>
         {project.caseStudy && <ViewProjectLink href={project.caseStudy} />}
@@ -121,7 +134,7 @@ function ProjectRow({ project, index, imageFirst }: { project: WorkProject; inde
 
   return (
     // Rows alternate the image side; rows with the image on the start side also carry a top rule (Figma).
-    <article className={`grid border-b border-line lg:grid-cols-2 ${imageFirst ? 'border-t' : ''}`}>
+    <article className={`group grid border-b border-line lg:grid-cols-2 ${imageFirst ? 'border-t' : ''}`}>
       <div
         className={`relative aspect-[685/440] overflow-hidden bg-media lg:aspect-auto lg:min-h-[440px] ${
           imageFirst ? '' : 'lg:order-last'
@@ -134,10 +147,16 @@ function ProjectRow({ project, index, imageFirst }: { project: WorkProject; inde
             width={1024}
             height={572}
             sizes="(min-width: 1024px) 1024px, 100vw"
-            className={IMAGE_CLASSES[project.id]}
+            className={`${IMAGE_CLASSES[project.id]} ${ZOOM}`}
           />
         ) : (
-          <Image src={project.image} alt="" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+          <Image
+            src={project.image}
+            alt=""
+            fill
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className={`object-cover ${ZOOM}`}
+          />
         )}
         <div className={`absolute inset-0 bg-linear-to-t to-55% ${SCRIMS[project.id]}`} />
 
@@ -164,7 +183,7 @@ function ProjectRow({ project, index, imageFirst }: { project: WorkProject; inde
       </div>
 
       <div className="flex flex-col justify-between gap-10 bg-card px-gutter py-10 lg:min-h-[440px] lg:px-12 lg:py-14">
-        <div>
+        <div data-reveal>
           <ul className="flex flex-wrap gap-2">
             {project.tags.map((tag) => (
               <li key={tag.en}>

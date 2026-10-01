@@ -94,6 +94,38 @@
   /* Letter spacing */
   --tracking-label: 0.5px; /* nav links, buttons, small labels */
 
+  /* Motion (not in Figma): subtle — short distances, ~0.7s, one soft ease-out curve everywhere. */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --default-transition-duration: 300ms; /* hover/focus transitions (`transition`, `transition-colors`, …) */
+  --default-transition-timing-function: var(--ease-out-soft);
+  --animate-rise: rise 0.8s var(--ease-out-soft) both; /* hero entrance */
+  --animate-settle: settle 1.8s var(--ease-out-soft) both; /* hero photo eases from 1.06 to 1 */
+  --animate-unveil: unveil 1.2s var(--ease-out-soft) both; /* cover fading off the hero photo */
+  --animate-drop: drop 0.35s var(--ease-out-soft) both; /* mobile menu opening */
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+  }
+  @keyframes settle {
+    from {
+      transform: scale(1.06);
+    }
+  }
+  @keyframes unveil {
+    to {
+      opacity: 0;
+    }
+  }
+  @keyframes drop {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+  }
+
   /* Radius */
   --radius-control: 8px; /* buttons, nav controls */
   --radius-badge: 2px; /* glass badge */
@@ -117,6 +149,44 @@
   --font-display: var(--ff-instrument-sans), var(--ff-plex-arabic), ui-sans-serif, sans-serif;
   --font-mono: var(--ff-dm-mono), var(--ff-plex-arabic), ui-monospace, monospace;
   --font-geist: var(--ff-geist), var(--ff-plex-arabic), ui-sans-serif, sans-serif;
+}
+
+/*
+ * Scroll reveal for elements marked `data-reveal`, driven by src/components/motion/RevealObserver.tsx.
+ * After hydration the script marks the ones still below the fold as pending (hidden), then clears the
+ * mark as each scrolls into view; elements arriving together get a stagger (--reveal-delay). Without
+ * JavaScript, with reduced motion, or for elements rendered later, nothing is hidden.
+ * Don't put data-reveal on an element that has its own `transition-*` utility (it would override
+ * this transition) or whose borders are shared with neighbours; wrap its content instead.
+ */
+@layer components {
+  @media (prefers-reduced-motion: no-preference) {
+    [data-reveal] {
+      transition:
+        opacity 0.7s var(--ease-out-soft),
+        transform 0.7s var(--ease-out-soft);
+      transition-delay: var(--reveal-delay, 0ms);
+    }
+    [data-reveal][data-reveal-pending] {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: none;
+    }
+  }
+}
+
+@media print {
+  [data-reveal-pending] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Theme toggle cross-fade (View Transitions; see toggleTheme in src/lib/theme.ts). */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.45s;
+  animation-timing-function: ease;
 }
 
 /* Outlined display type (the decorative "20 30" numerals). */

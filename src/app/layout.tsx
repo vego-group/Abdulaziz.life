@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { LanguageProvider } from '@/hooks/useLanguage';
 import { themeInitScript } from '@/lib/theme';
+import RevealObserver from '@/components/motion/RevealObserver';
 import { fontVariables } from './fonts';
 import '@/styles/globals.css';
 
@@ -41,6 +42,7 @@ export default function RootLayout({
       {/* Browser extensions (e.g. ColorZilla) add attributes to <body> before hydration. */}
       <body suppressHydrationWarning>
         <LanguageProvider>{children}</LanguageProvider>
+        <RevealObserver />
       </body>
     </html>
   );
