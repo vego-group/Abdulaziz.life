@@ -1,10 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from '@/hooks/useLanguage';
 import { NAVIGATION_ITEMS } from '@/constants/data';
+import ThemeToggle from '@/components/ui/ThemeToggle';
 
 const LOGO = { ar: 'عبدالعزيز', en: 'Abdulaziz' }; // TODO: review EN copy
 
@@ -70,10 +70,12 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <Link
             href="/#contact"
-            className="hidden rounded-control bg-accent px-5 py-2.5 text-12 font-semibold tracking-label text-fg transition hover:brightness-110 sm:block"
+            className="hidden rounded-control bg-accent px-5 py-2.5 text-12 font-semibold tracking-label text-on-accent transition hover:brightness-110 sm:block"
           >
             {bookLabel}
           </Link>
+
+          <ThemeToggle className={controlClass} />
 
           <button
             type="button"
@@ -82,7 +84,11 @@ export default function Header() {
             aria-label={language === 'ar' ? 'English' : 'العربية'}
             title={language === 'ar' ? 'English' : 'العربية'}
           >
-            <Image src="/icons/language.svg" alt="" width={21.5} height={21.5} />
+            {/* Figma icon used as a mask so it takes the theme's muted color. */}
+            <span
+              aria-hidden="true"
+              className="block size-[21.5px] bg-muted [mask:url(/icons/language.svg)_center/contain_no-repeat]"
+            />
           </button>
 
           <button
@@ -127,7 +133,7 @@ export default function Header() {
         <Link
           href="/#contact"
           onClick={closeMenu}
-          className="mt-6 rounded-control bg-accent py-3.5 text-center text-13 font-semibold tracking-label text-fg sm:hidden"
+          className="mt-6 rounded-control bg-accent py-3.5 text-center text-13 font-semibold tracking-label text-on-accent sm:hidden"
         >
           {bookLabel}
         </Link>

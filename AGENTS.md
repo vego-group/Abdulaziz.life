@@ -12,7 +12,8 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ## Codebase conventions
 
-- Design tokens (colors, type scale, spacing, radius) are defined in `src/styles/globals.css` (`@theme`, Tailwind v4). Use them instead of hard-coded values. The site is dark-only; there is no theme toggle.
+- Design tokens (colors, type scale, spacing, radius) are defined in `src/styles/globals.css` (`@theme`, Tailwind v4). Use them instead of hard-coded values.
+- Themes: the dark values come from Figma; light values (not in Figma, derived) are set once under `@variant light` in `globals.css`. The site follows the visitor's system setting; the header toggle stores a choice (`src/lib/theme.ts`). Use `on-media` for text on photos and `on-accent` for text on green buttons, and the `light:` variant when a component must differ between themes.
 - The site is Arabic-first (RTL) with an English version. Use logical utilities (`ps`/`pe`, `ms`/`me`, `start`/`end`, `border-s`/`border-e`) so layouts mirror in English.
 - All copy lives in `src/constants/data.ts` as `{ ar, en }`. English drafts awaiting review are marked `// TODO: review EN copy`.
 - Components, their props and their data sources are documented in COMPONENTS.md.

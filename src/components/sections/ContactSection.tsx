@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useState, type FormEvent, type ReactNode } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { ABOUT, BIO_INFO, CONSULTATION_TYPES, CONTACT } from '@/constants/data';
@@ -222,12 +221,10 @@ export default function ContactSection() {
                     </option>
                   ))}
                 </select>
-                <Image
-                  src="/icons/chevron-down.svg"
-                  alt=""
-                  width={10}
-                  height={6}
-                  className="pointer-events-none absolute end-5 top-1/2 -translate-y-1/2"
+                {/* Figma chevron used as a mask so it follows the text color in both themes. */}
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute end-5 top-1/2 h-1.5 w-2.5 -translate-y-1/2 bg-fg [mask:url(/icons/chevron-down.svg)_center/contain_no-repeat]"
                 />
               </div>
             </Field>
@@ -248,7 +245,7 @@ export default function ContactSection() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="mt-12 h-14 w-full rounded-submit bg-accent px-10 text-13 font-semibold tracking-label text-fg transition hover:brightness-110 disabled:cursor-wait disabled:opacity-60"
+            className="mt-12 h-14 w-full rounded-submit bg-accent px-10 text-13 font-semibold tracking-label text-on-accent transition hover:brightness-110 disabled:cursor-wait disabled:opacity-60"
           >
             {isSubmitting ? t(CONTACT.sending) : t(CONTACT.submit)}
           </button>

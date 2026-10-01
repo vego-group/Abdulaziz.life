@@ -1,9 +1,25 @@
 @import 'tailwindcss';
 
 /*
+ * Light theme selector. The site follows the visitor's system setting; the header toggle stores an
+ * explicit choice as <html data-theme="light|dark"> (applied before first paint, see src/lib/theme.ts).
+ * Use as `light:` in class names or `@variant light { … }` in CSS.
+ */
+@custom-variant light {
+  @media (prefers-color-scheme: light) {
+    &:where(:root:not([data-theme='dark']), :root:not([data-theme='dark']) *) {
+      @slot;
+    }
+  }
+  &:where([data-theme='light'], [data-theme='light'] *) {
+    @slot;
+  }
+}
+
+/*
  * Design tokens — Figma "عبدالعزيز بورتفوليو" (file hZc5m1EXn9gdHcVMPm84wF), designed at 1369px.
- * The site is dark-only for now. Every color is a CSS variable, so a light theme can later
- * override these under a selector such as [data-theme='light'] without touching components.
+ * These are the dark values from Figma. The light values below are not in Figma: they are derived
+ * from the same palette (same accent, inverted neutrals).
  */
 @theme {
   /* Colors */
@@ -23,6 +39,9 @@
   --color-nav: rgb(10 13 12 / 0.88); /* sticky nav */
   --color-danger: #ef4444; /* form errors (not in the design; same red as the previous site) */
   --color-numeral-stroke: rgb(111 155 140 / 0.4); /* outlined "20 30" numerals (accent-soft, sampled from Figma) */
+  --color-on-media: #f3f4f1; /* text and borders on photos — light in both themes */
+  --color-on-accent: #f3f4f1; /* text on green buttons — light in both themes */
+  --color-grid: #ffffff; /* Vision grid lines (drawn at 2.7% by the pattern itself) */
 
   /* Type scale — fixed UI sizes (Figma px). Default line height 1.6 matches most Figma text. */
   --text-9: 9px;
@@ -106,11 +125,36 @@
   -webkit-text-stroke: 1px var(--color-numeral-stroke);
 }
 
+/* Light theme values (not in Figma). Photo overlays, the glass badge and text on photos/buttons keep
+ * their dark-theme values because the photos don't change. Text tokens meet WCAG AA on the light ground. */
+:root {
+  @variant light {
+    --color-ink: #f3f4f1;
+    --color-card: #eaede8;
+    --color-surface: #e3e7e2;
+    --color-media: #d6dbd5;
+    --color-line: #d2d7d1;
+    --color-line-strong: #9ba29c;
+    --color-fg: #121615;
+    --color-muted: #59605c;
+    --color-accent-soft: #436e60;
+    --color-nav: rgb(243 244 241 / 0.88);
+    --color-danger: #c0392b;
+    --color-numeral-stroke: rgb(67 110 96 / 0.35);
+    --color-grid: #0a0d0c;
+  }
+}
+
 @layer base {
   html {
+    color-scheme: dark;
     background-color: var(--color-ink);
     scroll-behavior: smooth;
     scroll-padding-top: var(--spacing-nav);
+
+    @variant light {
+      color-scheme: light;
+    }
   }
 
   body {

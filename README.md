@@ -1,6 +1,6 @@
 # عبدالعزيز السبيعي — abdulaziz.life
 
-الموقع الشخصي لعبدالعزيز السبيعي، رائد أعمال ومستشار استراتيجي. مبني بـ Next.js وفق تصميم Figma «عبدالعزيز بورتفوليو»: عربي أولاً (RTL) مع نسخة إنجليزية، وبتصميم داكن.
+الموقع الشخصي لعبدالعزيز السبيعي، رائد أعمال ومستشار استراتيجي. مبني بـ Next.js وفق تصميم Figma «عبدالعزيز بورتفوليو»: عربي أولاً (RTL) مع نسخة إنجليزية، وبوضعين داكن وفاتح يتبعان إعداد جهاز الزائر (الوضع الفاتح مشتق من ألوان التصميم الداكن في Figma).
 
 ## الصفحات
 
@@ -38,10 +38,10 @@ src/
 │   ├── layout/        # Header، Footer
 │   ├── sections/      # أقسام الصفحة الرئيسية (و about/)
 │   ├── case-study/    # VegoCaseStudy
-│   └── ui/            # SectionIntro، Tag، OutlineNumerals
+│   └── ui/            # SectionIntro، Tag، OutlineNumerals، ThemeToggle
 ├── constants/data.ts  # كل النصوص (عربي/إنجليزي) والبيانات
 ├── hooks/useLanguage.tsx
-├── lib/api.ts         # إرسال طلبات الاستشارة
+├── lib/               # api.ts (طلبات الاستشارة)، theme.ts (الوضع الداكن/الفاتح)
 ├── styles/globals.css # Tailwind و design tokens
 └── types/index.ts
 public/                # الصور والشعارات والأيقونات ونمط الشبكة

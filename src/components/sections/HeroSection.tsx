@@ -23,7 +23,7 @@ export default function HeroSection() {
         <div className="flex flex-wrap items-center gap-4">
           <Link
             href="/#work"
-            className="rounded-control bg-accent px-7 py-3.5 text-13 font-semibold text-fg transition hover:brightness-110"
+            className="rounded-control bg-accent px-7 py-3.5 text-13 font-semibold text-on-accent transition hover:brightness-110"
           >
             {t(HERO.primaryCta)}
           </Link>
@@ -49,7 +49,7 @@ export default function HeroSection() {
 
         <div className="absolute start-5 bottom-5 rounded-badge border border-white/8 bg-glass px-6 py-4 backdrop-blur-md lg:start-10 lg:bottom-10.5">
           <p className="font-mono text-10 tracking-[1.2px] text-white/50 uppercase">{t(HERO.locationLabel)}</p>
-          <p className="pt-1 text-12 leading-[22.4px] font-medium whitespace-nowrap text-fg">{t(HERO.location)}</p>
+          <p className="pt-1 text-12 leading-[22.4px] font-medium whitespace-nowrap text-on-media">{t(HERO.location)}</p>
         </div>
       </div>
     </section>

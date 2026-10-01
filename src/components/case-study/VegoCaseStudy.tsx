@@ -30,7 +30,7 @@ export default function VegoCaseStudy() {
 
         <Link
           href="/#work"
-          className="absolute start-gutter top-8 flex items-center gap-2.5 text-fg/65 transition-colors hover:text-fg lg:start-12"
+          className="absolute start-gutter top-8 flex items-center gap-2.5 text-on-media/65 transition-colors hover:text-on-media lg:start-12"
         >
           <span aria-hidden="true" className="text-14 leading-[22.4px]">
             {backArrow}
@@ -43,7 +43,7 @@ export default function VegoCaseStudy() {
             <p className="text-10 leading-4 text-accent-bright">{t(CS.eyebrow)}</p>
             <span aria-hidden="true" className="h-px w-12 bg-white/20" />
           </div>
-          <h1 className="mt-7 pb-4 text-110 leading-[1.1] font-bold text-fg">{t(CS.name)}</h1>
+          <h1 className="mt-7 pb-4 text-110 leading-[1.1] font-bold text-on-media">{t(CS.name)}</h1>
           <ul className="flex flex-wrap gap-2">
             {CS.tags.map((tag) => (
               <li key={tag.en}>
@@ -51,7 +51,7 @@ export default function VegoCaseStudy() {
               </li>
             ))}
           </ul>
-          <p className="mt-6 max-w-[560px] text-17 leading-[28.9px] text-fg/62">{t(CS.tagline)}</p>
+          <p className="mt-6 max-w-[560px] text-17 leading-[28.9px] text-on-media/62">{t(CS.tagline)}</p>
         </div>
       </section>
 
@@ -117,7 +117,7 @@ export default function VegoCaseStudy() {
       <section className="relative h-[300px] overflow-hidden border-t border-line bg-surface sm:h-[380px] lg:h-[461.4px]">
         <Image src={`${IMAGES}/workshop.jpg`} alt="" fill sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-linear-to-r from-ink/42 to-transparent" />
-        <p className="absolute start-9 bottom-8 text-9 leading-[14.4px] tracking-[1.8px] text-fg/40 uppercase">
+        <p className="absolute start-9 bottom-8 text-9 leading-[14.4px] tracking-[1.8px] text-on-media/40 uppercase">
           {t(CS.caption)}
         </p>
       </section>
@@ -171,10 +171,10 @@ export default function VegoCaseStudy() {
         <div className="absolute inset-0 bg-linear-to-t from-scrim/70 to-transparent to-60%" />
         {/* Figma puts this block at the end side (left in Arabic): caption end-aligned, link start-aligned. */}
         <div className="absolute end-gutter bottom-12 min-w-[289.7px] lg:end-12 lg:bottom-[52px]">
-          <p className="text-end text-9 leading-[14.4px] tracking-[1.62px] text-fg/30 uppercase">{t(CS.nextCaption)}</p>
+          <p className="text-end text-9 leading-[14.4px] tracking-[1.62px] text-on-media/30 uppercase">{t(CS.nextCaption)}</p>
           <Link
             href="/#work"
-            className="mt-4 block text-28 leading-[43.8px] font-semibold text-fg transition-colors hover:text-accent-soft"
+            className="mt-4 block text-28 leading-[43.8px] font-semibold text-on-media transition-colors hover:text-accent-soft"
           >
             {t(CS.nextCta)}
           </Link>

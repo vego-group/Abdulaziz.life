@@ -51,8 +51,8 @@ function ArrowLink({ href, label, large = false }: { href: string; label: string
     <Link
       href={href}
       aria-label={label}
-      className={`flex shrink-0 items-center justify-center border font-display text-fg transition-colors hover:border-fg ${
-        large ? 'size-12 border-fg/25 text-18' : 'size-10 border-fg/30 text-16'
+      className={`flex shrink-0 items-center justify-center border font-display text-on-media transition-colors hover:border-on-media ${
+        large ? 'size-12 border-on-media/25 text-18' : 'size-10 border-on-media/30 text-16'
       }`}
     >
       {language === 'ar' ? '←' : '→'}
@@ -82,7 +82,7 @@ function FeaturedProject({ project }: { project: WorkProject }) {
         <div className="absolute inset-0 bg-linear-to-t from-scrim via-scrim/32 to-scrim/60" />
 
         {/* In Figma "01" sits under the tags; it is moved to the opposite corner so both stay visible. */}
-        <span className="absolute start-12 top-10 font-mono text-11 leading-[17.6px] tracking-[2.2px] text-fg/35 max-sm:hidden">
+        <span className="absolute start-12 top-10 font-mono text-11 leading-[17.6px] tracking-[2.2px] text-on-media/35 max-sm:hidden">
           01
         </span>
         <ul className="absolute end-gutter top-10 flex flex-wrap gap-2.5 max-sm:start-gutter">
@@ -96,10 +96,10 @@ function FeaturedProject({ project }: { project: WorkProject }) {
         <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-6 px-gutter-md py-12">
           <div>
             <p className="text-14 leading-4 font-medium tracking-label text-white uppercase">{t(project.category)}</p>
-            <h3 className="pt-3 font-display text-68 leading-[0.95] font-bold tracking-[-0.04em] text-fg">
+            <h3 className="pt-3 font-display text-68 leading-[0.95] font-bold tracking-[-0.04em] text-on-media">
               {t(project.title)}
             </h3>
-            <p className="pt-4 text-16 leading-6 font-bold text-fg/60">{t(project.tagline)}</p>
+            <p className="pt-4 text-16 leading-6 font-bold text-on-media/60">{t(project.tagline)}</p>
           </div>
           {project.caseStudy && <ArrowLink href={project.caseStudy} label={t(WORK.viewProject)} large />}
         </div>
@@ -153,7 +153,7 @@ function ProjectRow({ project, index, imageFirst }: { project: WorkProject; inde
           />
         )}
 
-        <span className="absolute start-7 bottom-7 font-mono text-10 leading-4 tracking-[2px] text-fg/30">
+        <span className="absolute start-7 bottom-7 font-mono text-10 leading-4 tracking-[2px] text-on-media/30">
           {indexLabel(index)}
         </span>
         {project.caseStudy && (

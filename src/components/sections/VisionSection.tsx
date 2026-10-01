@@ -17,11 +17,13 @@ export default function VisionSection() {
   const { t } = useLanguage();
 
   return (
-    // Grid pattern from Figma at its natural size (114px columns), anchored top-left like the frame.
-    <section
-      id="vision"
-      className="border-t border-line bg-[url(/patterns/vision-grid.svg)] bg-top-left bg-repeat lg:pb-[42px]"
-    >
+    <section id="vision" className="relative isolate border-t border-line lg:pb-[42px]">
+      {/* Figma grid pattern at its natural size (114px columns), anchored top-left like the frame.
+          Used as a mask so the lines take the theme's grid color. */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 bg-grid [mask-image:url(/patterns/vision-grid.svg)] [mask-position:top_left] [mask-repeat:repeat]"
+      />
       <div className="mx-auto max-w-page px-gutter pt-section">
         {/* Figma centers the 365px heading block in the 474px below the top padding. */}
         <div className="relative lg:flex lg:min-h-[474px] lg:items-center">
