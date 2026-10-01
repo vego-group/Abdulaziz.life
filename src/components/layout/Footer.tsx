@@ -6,7 +6,7 @@ import { BIO_INFO, FOOTER } from '@/constants/data';
 
 // Muted link with the 1px underline that grows on hover (0-width bar in the Figma frame).
 const linkClass =
-  'relative block text-14 text-muted transition-colors hover:text-fg after:absolute after:start-0 after:bottom-0 after:h-px after:w-0 after:bg-muted after:transition-[width] after:duration-300 hover:after:w-full';
+  'relative block text-14 text-muted transition-colors hover:text-fg after:absolute after:start-0 after:bottom-0 after:h-px after:w-0 after:bg-muted after:transition-[width] hover:after:w-full';
 
 export default function Footer() {
   const { t } = useLanguage();

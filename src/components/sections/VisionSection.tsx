@@ -28,7 +28,7 @@ export default function VisionSection() {
         {/* Figma centers the 365px heading block in the 474px below the top padding. */}
         <div className="relative lg:flex lg:min-h-[474px] lg:items-center">
           <OutlineNumerals className="absolute end-0 top-1/2 -translate-y-1/2 max-lg:hidden" />
-          <h2 className="max-w-[946px] text-80 leading-[1.338] font-bold tracking-[-0.05em] text-balance text-fg lg:min-h-[365px] lg:pb-11 lg:text-wrap">
+          <h2 data-reveal className="max-w-[946px] text-80 leading-[1.338] font-bold tracking-[-0.05em] text-balance text-fg lg:min-h-[365px] lg:pb-11 lg:text-wrap">
             {t(VISION.heading)}
           </h2>
         </div>
@@ -37,11 +37,14 @@ export default function VisionSection() {
       <div className="mt-12 grid grid-cols-2 border-t border-line lg:mt-20 lg:grid-cols-4">
         {VISION.pillars.map((pillar, index) => (
           <div key={pillar.title.en} className={pillarClass(index)}>
-            <p className="font-geist text-10 leading-[15px] tracking-[1.5px] text-accent-soft uppercase">
-              {String(index + 1).padStart(2, '0')}
-            </p>
-            <h3 className="pt-4 text-24 leading-[39px] font-bold tracking-[-0.13px] text-fg">{t(pillar.title)}</h3>
-            <p className="pt-3 text-14 leading-[23.1px] font-semibold text-muted">{t(pillar.description)}</p>
+            {/* The cell (with its rules) stays put; only the content rises in. */}
+            <div data-reveal>
+              <p className="font-geist text-10 leading-[15px] tracking-[1.5px] text-accent-soft uppercase">
+                {String(index + 1).padStart(2, '0')}
+              </p>
+              <h3 className="pt-4 text-24 leading-[39px] font-bold tracking-[-0.13px] text-fg">{t(pillar.title)}</h3>
+              <p className="pt-3 text-14 leading-[23.1px] font-semibold text-muted">{t(pillar.description)}</p>
+            </div>
           </div>
         ))}
       </div>

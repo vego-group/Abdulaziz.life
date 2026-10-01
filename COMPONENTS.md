@@ -27,6 +27,15 @@
 | الحاوية | `max-w-page` (1440px) | |
 | الزوايا | `rounded-control` (8) ، `rounded-badge` (2) ، `rounded-submit` (1) | |
 | أخرى | `tracking-label` (0.5px) ، `text-stroke` (نص محدّد بخط فقط) | |
+| الحركة | `ease-out-soft` ، `animate-rise` ، `animate-settle` ، `animate-unveil` ، `animate-drop` | انظر «الحركة» أدناه |
+
+**الحركة (غير موجودة في Figma):** هادئة (حوالي ثانية)، بمنحنى واحد `ease-out-soft` (easeOutCubic).
+- انتقالات hover الافتراضية 300ms (`transition` و `transition-colors` بدون `duration-*`).
+- حركات الدخول: `motion-safe:animate-rise` (صعود مع ظهور)، `animate-settle` (صورة تستقر من تكبير 1.06)، `animate-unveil` (غطاء يختفي فوق الصورة)، `animate-drop` (قائمة الموبايل). للتأخير استخدم `style={enterDelay(ms)}` من `src/lib/motion.ts`.
+- الظهور مع التمرير: أضف `data-reveal` للعنصر، و`RevealObserver` (في `layout.tsx`) يتكفل بالباقي. لا تضعه على عنصر عنده `transition-*` خاص به (الرابط مثلاً) أو حدوده مشتركة مع جيرانه (خانات الشبكة)؛ لفّ المحتوى بـ `div` وضع عليه `data-reveal`.
+- عدّاد الأرقام: `<CountUp value="+ 15" />` من `src/components/motion/CountUp.tsx`.
+- كل ذلك يتوقف مع `prefers-reduced-motion`، ولا يُخفى شيء بدون JavaScript أو للعناصر الظاهرة عند فتح الصفحة.
+- تبديل الوضع يمر بانتقال ناعم (View Transitions) في `toggleTheme`، ومدته في `globals.css`.
 
 **الخطوط:** `font-sans` (IBM Plex Sans Arabic، الافتراضي) ، `font-display` (Instrument Sans) ، `font-mono` (DM Mono) ، `font-geist` (Geist). الخطوط اللاتينية تعود تلقائياً إلى IBM Plex Sans Arabic للحروف العربية.
 
@@ -104,7 +113,7 @@
 
 **المميزات:**
 - شريط ثابت بارتفاع 64px، شفاف أعلى الصفحة ويصبح داكناً مع التمرير
-- روابط التنقل من `NAVIGATION_ITEMS`
+- روابط التنقل من `NAVIGATION_ITEMS`، مع خط يمتد تحتها عند hover
 - زر تبديل اللغة وزر تبديل الوضع (داكن/فاتح) وزر «احجز استشارة»
 - قائمة موبايل تحت 1024px
 
@@ -150,6 +159,16 @@
 **المحتوى:** الرأس، المقدمة، الفكرة، معلومات المشروع، المعرض، الخلفية، التحدي، المنهجية، النتائج، والمشروع التالي.
 
 **البيانات:** `VEGO_CASE_STUDY` (تتضمن `meta` المستخدمة في metadata الصفحة).
+
+---
+
+## 🎬 الحركة (Motion)
+
+| المكون / الملف | الوصف |
+|---|---|
+| `src/components/motion/RevealObserver.tsx` | مركّب مرة واحدة في `layout.tsx`. بعد التحميل يخفي عناصر `data-reveal` التي تحت الشاشة فقط، ويُظهر كل عنصر مرة واحدة عند وصوله، والعناصر التي تصل معاً تتتابع بفارق 120ms. يعمل من جديد عند الانتقال بين الصفحات |
+| `src/components/motion/CountUp.tsx` | `value` (مثل `"+ 15"` أو `"2030"`) و `delay?`. يعدّ الأرقام عند الظهور ويحتفظ بالرموز والأصفار البادئة؛ السنوات تعدّ آخر 30 فقط. قارئ الشاشة يقرأ القيمة النهائية |
+| `src/lib/motion.ts` | `enterDelay(ms)` لتأخير حركات الدخول، و `prefersReducedMotion()` |
 
 ---
 
@@ -242,6 +261,7 @@ export const NEW_SECTION = {
 3. **فصل البيانات:** ضع النصوص في `constants/data.ts` بالعربية والإنجليزية
 4. **الصور:** استخدم `next/image`، و`preload` لصورة أعلى الصفحة فقط
 5. **الاختبار:** لا ترسل طلبات إلى الـ API الحقيقي أثناء الاختبار؛ استخدم ردوداً وهمية
+6. **الحركة:** `data-reveal` للظهور مع التمرير و `motion-safe:` لأي حركة جديدة، وخلّها هادئة (مسافة 8–24px ومدة 0.3–1.2 ثانية)
 
 ---
 
