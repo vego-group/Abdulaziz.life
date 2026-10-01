@@ -9,7 +9,7 @@ interface CountUpProps {
   delay?: number;
 }
 
-const DURATION = 1400;
+const DURATION = 2200;
 
 // Counts the number up once it scrolls into view. The server render, reduced motion and a number
 // already on screen at load all show the final value. The visible text is updated through a ref

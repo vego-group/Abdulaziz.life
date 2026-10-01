@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { prefersReducedMotion } from '@/lib/motion';
 
 const PENDING = 'data-reveal-pending';
-const STAGGER_STEP = 80; // ms between elements that come into view together
+const STAGGER_STEP = 120; // ms between elements that come into view together
 const STAGGER_MAX = 5;
 
 // Reveals [data-reveal] elements once each, as they scroll into view (styles in globals.css).

@@ -39,7 +39,7 @@ export default function VegoCaseStudy() {
 
         <Link
           href="/#work"
-          style={enterDelay(500)}
+          style={enterDelay(850)}
           className="absolute start-gutter top-8 flex items-center gap-2.5 text-on-media/65 transition-colors hover:text-on-media motion-safe:animate-rise lg:start-12"
         >
           <span aria-hidden="true" className="text-14 leading-[22.4px]">
@@ -49,21 +49,21 @@ export default function VegoCaseStudy() {
         </Link>
 
         <div className="absolute inset-x-0 bottom-0 px-gutter pb-14 lg:ps-12 lg:pe-60">
-          <div className="flex items-center gap-3.5 motion-safe:animate-rise" style={enterDelay(150)}>
+          <div className="flex items-center gap-3.5 motion-safe:animate-rise" style={enterDelay(250)}>
             <p className="text-10 leading-4 text-accent-bright">{t(CS.eyebrow)}</p>
             <span aria-hidden="true" className="h-px w-12 bg-white/20" />
           </div>
-          <h1 className="mt-7 pb-4 text-110 leading-[1.1] font-bold text-on-media motion-safe:animate-rise" style={enterDelay(250)}>
+          <h1 className="mt-7 pb-4 text-110 leading-[1.1] font-bold text-on-media motion-safe:animate-rise" style={enterDelay(450)}>
             {t(CS.name)}
           </h1>
-          <ul className="flex flex-wrap gap-2 motion-safe:animate-rise" style={enterDelay(400)}>
+          <ul className="flex flex-wrap gap-2 motion-safe:animate-rise" style={enterDelay(700)}>
             {CS.tags.map((tag) => (
               <li key={tag.en}>
                 <Tag tone="hero">{t(tag)}</Tag>
               </li>
             ))}
           </ul>
-          <p className="mt-6 max-w-[560px] text-17 leading-[28.9px] text-on-media/62 motion-safe:animate-rise" style={enterDelay(500)}>{t(CS.tagline)}</p>
+          <p className="mt-6 max-w-[560px] text-17 leading-[28.9px] text-on-media/62 motion-safe:animate-rise" style={enterDelay(850)}>{t(CS.tagline)}</p>
         </div>
       </section>
 
@@ -192,7 +192,7 @@ export default function VegoCaseStudy() {
           alt=""
           fill
           sizes="100vw"
-          className="object-cover transition-transform duration-700 motion-safe:group-has-[a:hover]:scale-[1.03]"
+          className="object-cover transition-transform duration-1000 motion-safe:group-has-[a:hover]:scale-[1.03]"
         />
         <div className="absolute inset-0 bg-linear-to-t from-scrim/70 to-transparent to-60%" />
         {/* Figma puts this block at the end side (left in Arabic): caption end-aligned, link start-aligned. */}

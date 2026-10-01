@@ -18,7 +18,7 @@ const SCRIMS: Record<string, string> = {
 };
 
 // Photos ease in slightly while their project is hovered.
-const ZOOM = 'transition-transform duration-700 motion-safe:group-hover:scale-[1.03]';
+const ZOOM = 'transition-transform duration-1000 motion-safe:group-hover:scale-[1.03]';
 
 // Figma shows the Mamsa photo at its natural size (1024×572) offset 240px from the left, not cover-scaled.
 const IMAGE_CLASSES: Record<string, string> = {

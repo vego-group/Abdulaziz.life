@@ -8,8 +8,8 @@ import { BIO_INFO, HERO } from '@/constants/data';
 import { enterDelay } from '@/lib/motion';
 
 // Entrance timing (ms): headline words, then intro, buttons and the location badge.
-const WORD_START = 60;
-const WORD_STEP = 70;
+const WORD_START = 200;
+const WORD_STEP = 120;
 
 export default function HeroSection() {
   const { t } = useLanguage();
@@ -36,12 +36,12 @@ export default function HeroSection() {
         {/* Figma box is 522px; the first line measures 521.9px in Chrome, so 520px reproduces the Figma line break. */}
         <p
           className="mb-12 max-w-[520px] text-18 leading-[1.7] font-medium text-muted motion-safe:animate-rise"
-          style={enterDelay(afterTitle + 80)}
+          style={enterDelay(afterTitle + 150)}
         >
           {t(HERO.intro)}
         </p>
 
-        <div className="flex flex-wrap items-center gap-4 motion-safe:animate-rise" style={enterDelay(afterTitle + 200)}>
+        <div className="flex flex-wrap items-center gap-4 motion-safe:animate-rise" style={enterDelay(afterTitle + 300)}>
           <Link
             href="/#work"
             className="rounded-control bg-accent px-7 py-3.5 text-13 font-semibold text-on-accent transition hover:brightness-110 active:scale-[0.98]"
@@ -73,7 +73,7 @@ export default function HeroSection() {
 
         <div
           className="absolute start-5 bottom-5 rounded-badge border border-white/8 bg-glass px-6 py-4 backdrop-blur-md motion-safe:animate-rise lg:start-10 lg:bottom-10.5"
-          style={enterDelay(afterTitle + 360)}
+          style={enterDelay(afterTitle + 500)}
         >
           <p className="font-mono text-10 tracking-[1.2px] text-white/50 uppercase">{t(HERO.locationLabel)}</p>
           <p className="pt-1 text-12 leading-[22.4px] font-medium whitespace-nowrap text-on-media">{t(HERO.location)}</p>

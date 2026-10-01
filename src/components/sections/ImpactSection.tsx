@@ -28,7 +28,7 @@ export default function ImpactSection() {
               <p className="font-display text-75 leading-[0.9] font-semibold tracking-[-0.04em] whitespace-nowrap text-fg">
                 {/* Keeps "+ 15" in LTR order inside the RTL layout. */}
                 <span dir="ltr">
-                  <CountUp value={stat.value} delay={150 + index * 80} />
+                  <CountUp value={stat.value} delay={250 + index * 120} />
                 </span>
               </p>
               <p className="mt-4 text-13 leading-4 font-medium tracking-label text-accent">{t(stat.label)}</p>
