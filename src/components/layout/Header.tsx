@@ -47,8 +47,14 @@ export default function Header() {
         <Link
           href="/"
           onClick={closeMenu}
-          className="font-display text-18 tracking-[0.02em] text-fg italic [font-synthesis:none]"
+          className="flex items-center gap-3 font-display text-18 tracking-[0.02em] text-fg italic [font-synthesis:none]"
         >
+          {/* Kufic logo mark used as a mask so it takes the theme's green. 40×34px keeps its 2px grid crisp.
+              Decorative: the name next to it is the link text. */}
+          <span
+            aria-hidden="true"
+            className="block h-[34px] w-10 shrink-0 bg-accent-bright [mask:url(/logos/abdulaziz-mark.svg)_center/contain_no-repeat] light:bg-accent"
+          />
           {t(LOGO)}
         </Link>
 
