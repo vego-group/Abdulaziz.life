@@ -25,7 +25,7 @@ export const EXPERTISE = {
     en: 'Turning vision into strategy, and strategy into sustainable growth.', // TODO: review EN copy
   },
   note: {
-    ar: 'أربعة مجالات متكاملة من الخبرة والممارسة — مبنية على أكثر من 15 عامًا في السوق السعودية.',
+    ar: 'أربعة مجالات متكاملة من الخبرة والممارسة — مبنية على أكثر من 15 عاماً في السوق السعودية.',
     en: 'Four integrated areas of expertise and practice — built on more than 15 years in the Saudi market.', // TODO: review EN copy
   },
   location: { ar: 'الرياض، المملكة العربية السعودية', en: 'Riyadh, Saudi Arabia' },
@@ -69,7 +69,7 @@ export const EXPERTISE_AREAS: ExpertiseArea[] = [
 
 export const WORK = {
   heading: {
-    ar: 'نحوّل الأفكار إلى حلول، والطموحات إلى نتائج، ونصنع أثرًا حقيقيًا يدفع الأعمال إلى الأمام.',
+    ar: 'نحوّل الأفكار إلى حلول، والطموحات إلى نتائج، ونصنع أثراً حقيقياً يدفع الأعمال إلى الأمام.',
     en: 'Ideas into solutions, ambition into results — and real impact.', // TODO: review EN copy
   },
   note: {
@@ -118,9 +118,9 @@ export const WORK_PROJECTS: WorkProject[] = [
     id: 'venture-ecosystem',
     title: { ar: 'منظومة المشاريع', en: 'Venture Ecosystem' }, // TODO: review EN copy
     category: { ar: 'بناء المشاريع · شريك مؤسس ومستشار', en: 'Venture building · Co-founder & advisor' }, // TODO: review EN copy
-    tagline: { ar: 'البناء جنبًا إلى جنب مع جيل المؤسسين السعودي القادم.', en: 'Building alongside the next generation of Saudi founders.' }, // TODO: review EN copy
+    tagline: { ar: 'البناء جنباً إلى جنب مع جيل المؤسسين السعودي القادم.', en: 'Building alongside the next generation of Saudi founders.' }, // TODO: review EN copy
     description: {
-      ar: 'دعم المشاريع الجديدة من مرحلة الفكرة حتى دخول السوق — بناء أعمال متينة هيكليًا ومتموضعة استراتيجيًا.',
+      ar: 'دعم المشاريع الجديدة من مرحلة الفكرة حتى دخول السوق — بناء أعمال متينة هيكلياً ومتموضعة استراتيجياً.',
       en: 'Supporting new ventures from idea to market entry — building businesses that are structurally sound and strategically positioned.', // TODO: review EN copy
     },
     tags: [
@@ -154,7 +154,7 @@ export const WORK_PROJECTS: WorkProject[] = [
     id: 'ithaba',
     title: { ar: 'إثابة', en: 'Ithaba' }, // TODO: review EN copy
     category: { ar: 'تطوير واستثمار', en: 'Development & investment' }, // TODO: review EN copy
-    tagline: { ar: 'تمليك عقاري يفتح فرصًا استثمارية مستدامة.', en: 'Property ownership that opens sustainable investment opportunities.' }, // TODO: review EN copy
+    tagline: { ar: 'تمليك عقاري يفتح فرصاً استثمارية مستدامة.', en: 'Property ownership that opens sustainable investment opportunities.' }, // TODO: review EN copy
     description: {
       ar: 'منصة استثمار عقاري تتيح للمستثمرين امتلاك حصص جزئية في عقارات مختارة، وفتح فرص الاستثمار العقاري أمام شريحة أكبر من المستثمرين بمبالغ أكثر مرونة.',
       en: 'A real-estate investment platform that lets investors own fractional shares in selected properties, opening real-estate investing to more people with more flexible amounts.', // TODO: review EN copy
@@ -218,7 +218,7 @@ export const IMPACT_STATS: ImpactStat[] = [
   {
     value: '+ 04',
     label: { ar: 'مشاريع ومبادرات', en: 'Ventures & Initiatives' }, // TODO: review EN copy
-    description: { ar: 'تأسيسًا ومشاركةً في المملكة العربية السعودية', en: 'Founded and co-founded in Saudi Arabia' }, // TODO: review EN copy
+    description: { ar: 'تأسيساً ومشاركةً في المملكة العربية السعودية', en: 'Founded and co-founded in Saudi Arabia' }, // TODO: review EN copy
   },
   {
     value: '2030',
@@ -237,11 +237,11 @@ export const BIO_INFO = {
 
 export const ABOUT = {
   heading: {
-    ar: 'نبني أعمالًا أقوى، نقود تحولًا مؤثرًا، ونصنع أثرًا يدوم.',
+    ar: 'نبني أعمالاً أقوى، نقود تحولاً مؤثراً، ونصنع أثراً يدوم.',
     en: 'Stronger businesses, meaningful transformation, lasting impact.', // TODO: review EN copy
   },
   intro: {
-    ar: 'رائد أعمال يمتلك خبرة تتجاوز 15 عامًا في قيادة الابتكار والمشاريع التحولية عبر قطاعات الطاقة والمقاولات والتقنية المالية. يركّز على الاستفادة من التقنيات المتقدمة لبناء نماذج أعمال مستدامة وفعّالة تتوافق مع رؤية المملكة العربية السعودية 2030.',
+    ar: 'رائد أعمال يمتلك خبرة تتجاوز 15 عاماً في قيادة الابتكار والمشاريع التحولية عبر قطاعات الطاقة والمقاولات والتقنية المالية. يركّز على الاستفادة من التقنيات المتقدمة لبناء نماذج أعمال مستدامة وفعّالة تتوافق مع رؤية المملكة العربية السعودية 2030.',
     en: 'An entrepreneur with more than 15 years of experience leading innovation and transformative projects across energy, contracting and financial technology. He focuses on using advanced technologies to build sustainable, effective business models aligned with Saudi Vision 2030.', // TODO: review EN copy
   },
   // Rendered as one line of the first two, then the third; the second is faded.
@@ -258,15 +258,15 @@ export const ABOUT = {
   ],
   bio: [
     {
-      ar: 'عبدالعزيز السبيعي رائد أعمال سعودي ومستشار استراتيجي يمتلك خبرة تتجاوز 15 عامًا في بناء الشركات وقيادة التحول المؤسسي وتطوير الاستراتيجيات في قطاعات الأعمال والتكنولوجيا والتنقل. يتمحور عمله حول صناعة أثر حقيقي ودائم يتوافق مع رؤية المملكة العربية السعودية 2030.',
+      ar: 'عبدالعزيز السبيعي رائد أعمال سعودي ومستشار استراتيجي يمتلك خبرة تتجاوز 15 عاماً في بناء الشركات وقيادة التحول المؤسسي وتطوير الاستراتيجيات في قطاعات الأعمال والتكنولوجيا والتنقل. يتمحور عمله حول صناعة أثر حقيقي ودائم يتوافق مع رؤية المملكة العربية السعودية 2030.',
       en: 'Abdulaziz Al-Suabie is a Saudi entrepreneur and strategic advisor with more than 15 years of experience building companies, leading organisational transformation and developing strategy across business, technology and mobility. His work centres on creating real, lasting impact aligned with Saudi Vision 2030.', // TODO: review EN copy
     },
     {
-      ar: 'يجمع عمله بين العزيمة الريادية والانضباط التنفيذي — محوّلًا الأفكار إلى مؤسسات، والتحديات التجارية إلى فرص حقيقية.',
+      ar: 'يجمع عمله بين العزيمة الريادية والانضباط التنفيذي — محوّلاً الأفكار إلى مؤسسات، والتحديات التجارية إلى فرص حقيقية.',
       en: 'His work combines entrepreneurial drive with executive discipline — turning ideas into institutions and business challenges into real opportunities.', // TODO: review EN copy
     },
   ],
-  quote: { ar: '"نبني للمستقبل، ونصنع أثرًا حقيقيًا."', en: '"We build for the future, and create real impact."' }, // TODO: review EN copy
+  quote: { ar: '"نبني للمستقبل، ونصنع أثراً حقيقياً."', en: '"We build for the future, and create real impact."' }, // TODO: review EN copy
   moreLink: { ar: '← المزيد عن عبدالعزيز', en: 'More about Abdulaziz →' }, // TODO: review EN copy
   profileLabel: { ar: 'الملف الشخصي', en: 'Profile' }, // TODO: review EN copy
   profileFields: {
@@ -341,10 +341,10 @@ export const INSIGHTS = {
 export const CONTACT = {
   heading: [
     { ar: 'هل لديك فكرة تستحق البناء؟', en: 'Have an idea worth building?' }, // TODO: review EN copy
-    { ar: 'لنحوّلها معًا إلى أثر حقيقي.', en: "Let's turn it into real impact, together." }, // TODO: review EN copy
+    { ar: 'لنحوّلها معاً إلى أثر حقيقي.', en: "Let's turn it into real impact, together." }, // TODO: review EN copy
   ],
   intro: {
-    ar: 'سواء كنت تبني مشروعًا جديدًا، أو تستكشف فرصة استراتيجية، أو تسعى لتحويل فكرة طموحة إلى واقع ملموس — نحن هنا لنتحدث، نفهم رؤيتك، ونبدأ معًا في بناء ما هو قادم.',
+    ar: 'سواء كنت تبني مشروعاً جديداً، أو تستكشف فرصة استراتيجية، أو تسعى لتحويل فكرة طموحة إلى واقع ملموس — نحن هنا لنتحدث، نفهم رؤيتك، ونبدأ معاً في بناء ما هو قادم.',
     en: "Whether you're building a new venture, exploring a strategic opportunity or turning an ambitious idea into reality — we're here to talk, understand your vision and start building what comes next, together.", // TODO: review EN copy
   },
   startCta: { ar: 'ابدأ المحادثة ↗', en: 'Start the conversation ↗' }, // TODO: review EN copy
@@ -377,7 +377,7 @@ export const CONTACT = {
     },
     topic: {
       label: { ar: 'ما الذي تودّ مناقشته؟', en: 'What would you like to discuss?' }, // TODO: review EN copy
-      placeholder: { ar: 'اختر موضوعًا', en: 'Choose a topic' }, // TODO: review EN copy
+      placeholder: { ar: 'اختر موضوعاً', en: 'Choose a topic' }, // TODO: review EN copy
     },
     message: {
       label: { ar: 'الرسالة', en: 'Message' }, // TODO: review EN copy

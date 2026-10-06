@@ -17,5 +17,6 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - Motion is subtle and optional: scroll reveals use the `data-reveal` attribute (src/components/motion/RevealObserver.tsx), entrances use `motion-safe:animate-*` with `enterDelay()` (src/lib/motion.ts), and everything stops under `prefers-reduced-motion`. Never hide content in a way that needs JavaScript to undo. Details in COMPONENTS.md.
 - The site is Arabic-first (RTL) with an English version. Use logical utilities (`ps`/`pe`, `ms`/`me`, `start`/`end`, `border-s`/`border-e`) so layouts mirror in English.
 - All copy lives in `src/constants/data.ts` as `{ ar, en }`. English drafts awaiting review are marked `// TODO: review EN copy`.
+- Arabic tanween fath goes on the alef, after it (`اً`: أعمالاً، عاماً), never on the letter before it (`ًا`: أعمالًا).
 - Components, their props and their data sources are documented in COMPONENTS.md.
 - Run `npm run lint` and `npm run build` before committing.
