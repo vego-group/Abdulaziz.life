@@ -176,12 +176,10 @@ export const WORK_PROJECTS: WorkProject[] = [
       ar: 'العمل على تطوير حلول تنقل كهربائي تُمكّن الأفراد والمؤسسات من الوصول إلى المركبات الكهربائية واستخدامها بطريقة أكثر مرونة وكفاءة.',
       en: 'Developing electric-mobility solutions that let individuals and organisations access and use electric vehicles more flexibly and efficiently.', // TODO: review EN copy
     },
-    // Same tags as Mamsa in the design (including "عقارات").
-    // TODO: confirm EV Share tags
     tags: [
-      { ar: 'عقارات', en: 'Real estate' }, // TODO: review EN copy
-      { ar: 'تطوير', en: 'Development' }, // TODO: review EN copy
-      { ar: 'استثمار', en: 'Investment' }, // TODO: review EN copy
+      { ar: 'تنقل مشترك', en: 'Shared mobility' }, // TODO: review EN copy
+      { ar: 'تملّك مركبات', en: 'Vehicle ownership' }, // TODO: review EN copy
+      { ar: 'عائد استثماري', en: 'Investment returns' }, // TODO: review EN copy
     ],
     image: '/images/work/ev-share.png',
   },
@@ -202,7 +200,7 @@ export const TIMELINE: TimelineItem[] = [
 ];
 
 export const SOCIAL_LINKS: SocialLink[] = [
-  { platform: 'LinkedIn', url: 'https://www.linkedin.com/in/abdalaziz-alsbaie-9ba1b61bb' },
+  { platform: 'LinkedIn', url: 'https://sa.linkedin.com/in/abdalaziz-alsubaie-9ba1b61bb' },
   { platform: 'WhatsApp', url: 'https://wa.me/966555071670' },
 ];
 
@@ -426,13 +424,13 @@ export const FOOTER = {
 // language-specific arrow ("→" means back in Arabic, "←" in English).
 export const VEGO_CASE_STUDY = {
   meta: {
-    title: 'فيغو (VEGO) | عبدالعزيز السبيعي',
+    title: 'فيجو (VEGO) | عبدالعزيز السبيعي',
     description:
-      'شركة سعودية رائدة في التنقل الكهربائي، تقود التحول نحو النقل النظيف في المملكة. تعمل فيغو على بناء البنية التحتية والمنتجات والمنظومة الكاملة للمركبات الكهربائية في السوق السعودية.',
+      'شركة سعودية رائدة في التنقل الكهربائي، تقود التحول نحو النقل النظيف في المملكة. تعمل فيجو على بناء البنية التحتية والمنتجات والمنظومة الكاملة للمركبات الكهربائية في السوق السعودية.',
   },
   back: { ar: 'العودة إلى الأعمال', en: 'Back to work' }, // TODO: review EN copy
   eyebrow: { ar: '٠١ / أعمال مختارة', en: '01 / Selected work' }, // TODO: review EN copy
-  name: { ar: 'فيغو', en: 'VEGO' },
+  name: { ar: 'فيجو', en: 'VEGO' },
   // Reading order (the design lists them right to left).
   tags: [
     { ar: 'مشروع', en: 'Venture' }, // TODO: review EN copy
@@ -443,7 +441,7 @@ export const VEGO_CASE_STUDY = {
   projectLabel: { ar: 'المشروع', en: 'Project' }, // TODO: review EN copy
   projectMeta: { ar: 'التنقل الكهربائي · المؤسس · 2022–حتى الآن', en: 'Electric mobility · Founder · 2022–present' }, // TODO: review EN copy
   intro: {
-    ar: 'شركة سعودية رائدة في التنقل الكهربائي، تقود التحول نحو النقل النظيف في المملكة. تعمل فيغو على بناء البنية التحتية والمنتجات والمنظومة الكاملة للمركبات الكهربائية في السوق السعودية.',
+    ar: 'شركة سعودية رائدة في التنقل الكهربائي، تقود التحول نحو النقل النظيف في المملكة. تعمل فيجو على بناء البنية التحتية والمنتجات والمنظومة الكاملة للمركبات الكهربائية في السوق السعودية.',
     en: "A leading Saudi electric-mobility company driving the Kingdom's shift to clean transport. VEGO is building the infrastructure, products and complete ecosystem for electric vehicles in the Saudi market.", // TODO: review EN copy
   },
   ideaLabel: { ar: 'الفكرة', en: 'The idea' }, // TODO: review EN copy
@@ -463,7 +461,7 @@ export const VEGO_CASE_STUDY = {
     ar: 'أول شركة سعودية متخصصة في التنقل الكهربائي — تبني البنية التحتية والمركبات والمنظومة الكاملة لمستقبل خالٍ من الانبعاثات.',
     en: "Saudi Arabia's first company dedicated to electric mobility — building the infrastructure, vehicles and complete ecosystem for a zero-emission future.", // TODO: review EN copy
   },
-  caption: { ar: 'فيغو / ٠١', en: 'VEGO / 01' }, // TODO: review EN copy
+  caption: { ar: 'فيجو / ٠١', en: 'VEGO / 01' }, // TODO: review EN copy
   challengeLabel: { ar: 'التحدي', en: 'The challenge' }, // TODO: review EN copy
   challenge: {
     ar: 'يستلزم العمل في سوق سريعة التطور الموازنة بين الابتكار والواقعية. كان التحدي في بناء شيء جديد حقيقياً مع التعامل مع واقع التنظيم والبنية التحتية وجاهزية السوق في المملكة العربية السعودية.',
@@ -505,7 +503,7 @@ export const VEGO_CASE_STUDY = {
     en: 'Early results show strong market interest and alignment with the economic-diversification and sustainability goals of Vision 2030. The initiative keeps evolving with a focus on sustainable growth and measurable impact.', // TODO: review EN copy
   },
   // "Business transformation" has no case study yet, so the next-project links go to the Work section.
-  nextCaption: { ar: 'فيغو / 01', en: 'VEGO / 01' },
+  nextCaption: { ar: 'فيجو / 01', en: 'VEGO / 01' },
   nextCta: { ar: 'استكشف المشروع التالي ←', en: 'Explore the next project →' }, // TODO: review EN copy
   nextLabel: { ar: 'التالي ←', en: 'Next →' }, // TODO: review EN copy
   nextTitle: { ar: 'التحول التجاري', en: 'Business Transformation' }, // TODO: review EN copy
