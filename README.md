@@ -33,7 +33,7 @@ npm run build && npm start
 
 ```
 src/
-├── app/               # الصفحات، الخطوط، robots.ts، sitemap.ts
+├── app/               # الصفحات، الخطوط، robots.ts، sitemap.ts، manifest.ts، الأيقونات وصورة المشاركة
 ├── components/
 │   ├── layout/        # Header، Footer
 │   ├── sections/      # أقسام الصفحة الرئيسية (و about/)
@@ -46,6 +46,18 @@ src/
 └── types/index.ts
 public/                # الصور والشعارات والأيقونات ونمط الشبكة
 ```
+
+## الأيقونات وصورة المشاركة
+
+| الملف | الاستخدام |
+|---|---|
+| `src/app/icon.svg` | الأصل: حرف «ع» على مربع أخضر (`--color-accent`)، وكل المقاسات الأخرى مأخوذة منه |
+| `src/app/favicon.ico` | 16 و 32 و 48 بكسل |
+| `src/app/apple-icon.png` | 180×180 للآيفون، بدون زوايا مدورة (iOS يدوّرها) |
+| `public/app-icons/` | 192 و 512 و 512 maskable لأندرويد، معرّفة في `src/app/manifest.ts` |
+| `src/app/opengraph-image.jpg` | 1200×630، تظهر عند مشاركة الرابط (واتساب، لينكدإن، X). النص البديل في `opengraph-image.alt.txt` |
+
+عند تغيير الأيقونة: عدّل `icon.svg` ثم صدّر منه المقاسات نفسها. صورة المشاركة ملف ثابت لأن مولّد الصور في Next (`next/og`) يعكس ترتيب الكلمات العربية.
 
 ## تعديل المحتوى
 

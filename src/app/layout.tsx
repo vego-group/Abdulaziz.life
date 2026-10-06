@@ -14,6 +14,8 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  // Makes the share image URL absolute (same host as the sitemap).
+  metadataBase: new URL('https://www.abdulaziz.life'),
   title: 'عبدالعزيز السبيعي | مستشار استراتيجي | رؤية 2030',
   description:
     'رائد أعمال يمتلك خبرة تمتد لأكثر من 15 عاماً في قيادة الابتكار وإدارة المشاريع التحويلية',
@@ -24,6 +26,8 @@ export const metadata: Metadata = {
     'التنقل الكهربائي',
     'فيجو',
   ],
+  // X shows the share image (opengraph-image.jpg) full width instead of as a small thumbnail.
+  twitter: { card: 'summary_large_image' },
 };
 
 export default function RootLayout({
