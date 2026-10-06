@@ -43,19 +43,14 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex h-nav max-w-page items-center justify-between px-gutter">
-        {/* Latin text gets Instrument Sans italic; Arabic falls back to Plex upright, as in the design. */}
-        <Link
-          href="/"
-          onClick={closeMenu}
-          className="flex items-center gap-3 font-display text-18 tracking-[0.02em] text-fg italic [font-synthesis:none]"
-        >
-          {/* Kufic logo mark used as a mask so it takes the theme's green. 40×34px keeps its 2px grid crisp.
-              Decorative: the name next to it is the link text. */}
+        {/* Logo mark only; the name stays as hidden link text for screen readers. */}
+        <Link href="/" onClick={closeMenu} className="flex items-center">
+          {/* Kufic logo mark used as a mask so it takes the theme's green. 40×34px keeps its 2px grid crisp. */}
           <span
             aria-hidden="true"
             className="block h-[34px] w-10 shrink-0 bg-accent-bright [mask:url(/logos/abdulaziz-mark.svg)_center/contain_no-repeat] light:bg-accent"
           />
-          {t(LOGO)}
+          <span className="sr-only">{t(LOGO)}</span>
         </Link>
 
         <nav aria-label={language === 'ar' ? 'التنقل الرئيسي' : 'Main navigation'} className="hidden lg:block">
