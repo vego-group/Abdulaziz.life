@@ -139,7 +139,7 @@
 | ImpactSection | `sections/ImpactSection.tsx` | أربعة أرقام بفواصل | `IMPACT_STATS` |
 | AboutSection (`#about`) | `sections/AboutSection.tsx` | العنوان والمقدمة، ثم `about/AboutBio` و `about/AboutProfileEducation` و `about/AboutSectors` | `ABOUT` ، `BIO_INFO` ، `TIMELINE` ، `SECTORS` |
 | ExpertiseSection (`#expertise`) | `sections/ExpertiseSection.tsx` | أربعة مجالات خبرة وشريط «ناقش متطلباتك» | `EXPERTISE` ، `EXPERTISE_AREAS` |
-| WorkSection (`#work`) | `sections/WorkSection.tsx` | مشروع VEGO المميز وخمسة صفوف مشاريع بالتناوب | `WORK` ، `WORK_PROJECTS` |
+| WorkSection (`#work`) | `sections/WorkSection.tsx` | مشروع VEGO المميز وسبعة صفوف مشاريع بالتناوب | `WORK` ، `WORK_PROJECTS` |
 | VisionSection (`#vision`) | `sections/VisionSection.tsx` | العنوان مع الشبكة والأرقام، وأربعة محاور | `VISION` |
 | VisionStripe | `sections/VisionStripe.tsx` | شريط الاقتباس | `VISION.stripeQuote` |
 | InsightsSection (`#insights`) | `sections/InsightsSection.tsx` | قائمة المقالات (غير قابلة للنقر حالياً) | `INSIGHTS` |
