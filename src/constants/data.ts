@@ -183,6 +183,41 @@ export const WORK_PROJECTS: WorkProject[] = [
     ],
     image: '/images/work/ev-share.png',
   },
+  // The two Jordan companies use Unsplash photos until the companies' own photos are available.
+  {
+    id: 'colors-bank',
+    title: { ar: 'بنك الألوان', en: 'Colors Bank' }, // TODO: review EN copy
+    category: { ar: 'صناعة الدهانات · الأردن', en: 'Paint manufacturing · Jordan' }, // TODO: review EN copy
+    tagline: { ar: 'علاقات مستدامة مع الوكلاء، وأسواق تصديرية جديدة.', en: 'Lasting relationships with agents, and new export markets.' }, // TODO: review EN copy
+    description: {
+      ar: 'مصنع أردني للدهانات المائية الداخلية والخارجية والدهانات الزيتية والديكورية، يصدّر منتجاته إلى دول عديدة منها الولايات المتحدة وفلسطين والسعودية والعراق والكويت وأوغندا.',
+      en: 'A Jordanian manufacturer of water-based interior and exterior paints, oil-based and decorative paints, exporting to many countries including the United States, Palestine, Saudi Arabia, Iraq, Kuwait and Uganda.', // TODO: review EN copy
+    },
+    tags: [
+      { ar: 'صناعة', en: 'Industry' }, // TODO: review EN copy
+      { ar: 'دهانات', en: 'Paints' }, // TODO: review EN copy
+      { ar: 'تصدير', en: 'Export' }, // TODO: review EN copy
+    ],
+    image: '/images/work/colors-bank.jpg',
+    logo: { src: '/logos/colors-bank.svg', width: 280, height: 49.36 },
+  },
+  {
+    id: 'jsie',
+    title: { ar: 'الشركة السعودية الأردنية للاستيراد والتصدير', en: 'JSIE' }, // TODO: review EN copy
+    category: { ar: 'التجارة الدولية · الأردن', en: 'International trade · Jordan' }, // TODO: review EN copy
+    tagline: { ar: 'حلول تجارية عالمية في المواد الخام والمعادن.', en: 'Global trade solutions in raw materials and metals.' }, // TODO: review EN copy
+    description: {
+      ar: 'تعمل الشركة في تجارة المواد الخام والمعادن على المستوى الدولي، استيراداً وتصديراً.',
+      en: 'A Saudi-Jordanian company trading raw materials and metals internationally, through both import and export.', // TODO: review EN copy
+    },
+    tags: [
+      { ar: 'تجارة دولية', en: 'International trade' }, // TODO: review EN copy
+      { ar: 'مواد خام', en: 'Raw materials' }, // TODO: review EN copy
+      { ar: 'معادن', en: 'Metals' }, // TODO: review EN copy
+    ],
+    image: '/images/work/jsie.jpg',
+    logo: { src: '/logos/jsie.svg', width: 180, height: 65.22 },
+  },
 ];
 
 export const TIMELINE: TimelineItem[] = [
@@ -211,14 +246,17 @@ export const IMPACT_STATS: ImpactStat[] = [
     description: { ar: 'عبر الاستراتيجية والتحول وبناء المشاريع', en: 'Across strategy, transformation and venture building' }, // TODO: review EN copy
   },
   {
-    value: '03',
+    value: '04',
     label: { ar: 'قطاعات استراتيجية', en: 'Strategic Sectors' },
-    description: { ar: 'الأعمال، التكنولوجيا، والتنقل', en: 'Business, technology and mobility' }, // TODO: review EN copy
+    description: { ar: 'الأعمال، التكنولوجيا، التنقل، والصناعة', en: 'Business, technology, mobility and industry' }, // TODO: review EN copy
   },
   {
-    value: '+ 04',
+    value: '+ 06',
     label: { ar: 'مشاريع ومبادرات', en: 'Ventures & Initiatives' }, // TODO: review EN copy
-    description: { ar: 'تأسيساً ومشاركةً في المملكة العربية السعودية', en: 'Founded and co-founded in Saudi Arabia' }, // TODO: review EN copy
+    description: {
+      ar: 'تأسيساً ومشاركةً في المملكة العربية السعودية والأردن',
+      en: 'Founded and co-founded in Saudi Arabia and Jordan', // TODO: review EN copy
+    },
   },
   {
     value: '2030',

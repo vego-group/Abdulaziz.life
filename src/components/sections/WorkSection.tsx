@@ -15,6 +15,9 @@ const SCRIMS: Record<string, string> = {
   mamsa: 'from-scrim/90 to-scrim/60',
   ithaba: 'from-scrim/80 to-scrim/40',
   'ev-share': 'from-scrim/90 to-scrim/32',
+  // Not in Figma: the bright paint photo needs a heavier overlay to keep the logo readable.
+  'colors-bank': 'from-scrim/90 to-scrim/70',
+  jsie: 'from-scrim/90 to-scrim/60',
 };
 
 // Photos ease in slightly while their project is hovered.
